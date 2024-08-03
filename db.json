@@ -1,0 +1,76 @@
+{
+  "employees": [
+    {
+      "id": "5",
+      "firstname": "John",
+      "lastname": "Doe",
+      "phonenumber": 908908908,
+      "birthdate": "1996-04-04T00:00:00.000Z",
+      "salary": 5000,
+      "status": "Na urlopie",
+      "address": "Francuska 22",
+      "city": "Kraków",
+      "postalcode": "44333"
+    },
+    {
+      "id": "2",
+      "firstname": "Jan",
+      "lastname": "Kowalskiego",
+      "salary": 15000,
+      "status": "Na urlopie",
+      "phonenumber": 123123123,
+      "birthdate": "1996-04-04T00:00:00.000Z",
+      "address": "Francuska 22",
+      "postalcode": "44333",
+      "city": "Kraków"
+    },
+    {
+      "id": "1",
+      "firstname": "Adam",
+      "lastname": "Nowak",
+      "phonenumber": 345345345,
+      "birthdate": "1996-04-04T00:00:00.000Z",
+      "salary": 25000,
+      "status": "Na urlopie",
+      "address": "Francuska 22",
+      "city": "Kraków",
+      "postalcode": "44333"
+    },
+    {
+      "id": "3",
+      "firstname": "Adam",
+      "lastname": "Nowak",
+      "phonenumber": 678678678,
+      "birthdate": "2024-11-19T00:00:00.000Z",
+      "salary": 24000,
+      "status": "Na urlopie",
+      "address": "Francuska 22",
+      "city": "Warszawa",
+      "postalcode": "44333"
+    },
+    {
+      "id": "4a74",
+      "firstname": "Jan",
+      "lastname": "Kowalsli",
+      "birthdate": "2024-08-08",
+      "phonenumber": "123123",
+      "address": "Kraków",
+      "city": "Warszawska",
+      "postalcode": "11011",
+      "status": "URLOP",
+      "salary": "500000"
+    },
+    {
+      "id": "cbfe",
+      "firstname": "Jan",
+      "lastname": "Tester",
+      "birthdate": "1999-01-12",
+      "phonenumber": "12312323",
+      "address": "12",
+      "city": "Kraków",
+      "postalcode": "11222",
+      "status": "FIRED",
+      "salary": "50000"
+    }
+  ]
+}

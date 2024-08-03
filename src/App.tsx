@@ -1,15 +1,37 @@
-import { useState } from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
+import { EmployeesPage } from './pages/EmployeesPage'
+import { DetailsPage } from './pages/DetailsPage';
+import { AddPage } from './pages/AddPage';
+import { EditPage } from './pages/EditPage';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <EmployeesPage />
+  },
+  {
+    path: '/details/:id',
+    element: <DetailsPage />
+  },
+  {
+    path: '/add',
+    element: <AddPage />
+  },
+  {
+    path: '/edit',
+    element: <EditPage />
+  }
+]);
 
 function App() {
-  
-
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <p className="read-the-docs">Vite and React</p>
+      <main className='bg-white p-4 h-screen'>
+        <RouterProvider router={router} />
+      </main>
     </>
-  );
+  )
 }
 
 export default App
