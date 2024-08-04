@@ -21,7 +21,7 @@ export function DetailsPage() {
     const handleEditClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
         event.preventDefault();
 
-        navigate('/edit', { state: data });
+        navigate('/edit' +data.id, { state: data });
     }
 
     return (
@@ -30,7 +30,7 @@ export function DetailsPage() {
 
         {data ? (
           <section>
-            <div className="sm:grid grid-cols-3 mb-3 ">
+            <div className="grid-cols-3 md:grid md:grid-cols-2 mb-3 ">
               <div className="col">
                 <label htmlFor="firstname" className="form-label">
                   Firstname
@@ -68,14 +68,14 @@ export function DetailsPage() {
                 />
               </div>
             </div>
-            <div className="sm:grid grid-cols-3 mb-3 ">
+            <div className="grid-cols-3 md:grid md:grid-cols-2 mb-3 ">
               <div className="col">
                 <label htmlFor="id" className="form-label">
                   ID
                 </label>
                 <input
                   type="text"
-                  className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                  className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                   id="id"
                   value={data.id}
                   readOnly
@@ -94,7 +94,7 @@ export function DetailsPage() {
                 />
               </div>
             </div>
-            <div className="sm:grid grid-cols-3 mb-3 ">
+            <div className="grid-cols-3 md:grid md:grid-cols-2 mb-3 ">
               <div className="col">
                 <label htmlFor="address" className="form-label">
                   Address
@@ -132,7 +132,7 @@ export function DetailsPage() {
                 />
               </div>
             </div>
-            <div className="sm:grid grid-cols-3 mb-3 ">
+            <div className=" grid-cols-3 md:grid md:grid-cols-2 mb-3 ">
               <div className="col">
                 <label htmlFor="status" className="form-label">
                   Status
@@ -161,7 +161,7 @@ export function DetailsPage() {
             <div className="grid grid-cols-6 gap-4">
               <button
                 onClick={handleEditClick}
-                className="col-start-6 col-end-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                className="col-start-5 md:col-start-6 lg:col-start-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
               >
                 Edit
               </button>

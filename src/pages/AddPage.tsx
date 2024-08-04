@@ -25,16 +25,16 @@ export function AddPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mx-12">
+    <form onSubmit={handleSubmit} className="mx-6 ">
       <h1 className="pt-4 pb-4">Add Employee</h1>
       <hr className="my-5" />
-      <div className="sm:grid grid-cols-3 mb-3 ">
-        <div className="col">
+      <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
+        <div className="col ">
           <label htmlFor="firstname" className="form-label">
             Firstname
           </label>
           <input
-            className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+            className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
             type="text"
             name="firstname"
             required
@@ -53,7 +53,7 @@ export function AddPage() {
         </div>
       </div>
 
-      <div className="sm:grid grid-cols-3 mb-3">
+      <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
         <div className="col">
           <label htmlFor="birthdate" className="form-label">
             Birthdate
@@ -80,7 +80,7 @@ export function AddPage() {
         </div>
       </div>
       <hr className="my-5" />
-      <div className="sm:grid grid-cols-3 mb-3">
+      <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
         <div className="col">
           <label htmlFor="address" className="form-label">
             Address
@@ -116,7 +116,7 @@ export function AddPage() {
         </div>
       </div>
       <hr className="my-5" />
-      <div className="sm:grid grid-cols-3 w-100">
+      <div className="lg:grid grid-cols-3 w-100 [&>*]:mb-4">
         <div className="col">
           <label htmlFor="status" className="form-label">
             Status
@@ -145,7 +145,7 @@ export function AddPage() {
       <hr className="my-5" />
       <div className="grid grid-cols-6 gap-4">
         <button
-          className="col-start-6 col-end-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+          className="col-start-5 md:col-start-6 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           type="submit"
         >
           Add

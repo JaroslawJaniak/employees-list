@@ -71,6 +71,18 @@
       "postalcode": "11222",
       "status": "FIRED",
       "salary": "50000"
+    },
+    {
+      "id": "01a3",
+      "firstname": "Jarosław",
+      "lastname": "Janiak",
+      "birthdate": "2024-08-21",
+      "phonenumber": "514651411",
+      "address": "Złota",
+      "city": "Piotrków Trybunalski",
+      "postalcode": "97-300",
+      "status": "ON_LEAVE",
+      "salary": "12000"
     }
   ]
 }
