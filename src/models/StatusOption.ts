@@ -1,21 +1,19 @@
+import { useTranslation } from "react-i18next";
 import { EmployeeStatus } from "./Employee";
 
-export interface StatusOption { 
-    label: string, 
-    value: EmployeeStatus 
+export interface StatusOption {
+  label: string;
+  value: EmployeeStatus;
 }
 
-export const STATUS_OPTIONS: StatusOption[] = [
-    {
-        label: 'Zatrudniony',
-        value: 'HIRED'
-    },
-    {
-        label: 'Na Urlopie',
-        value: 'ON_LEAVE'
-    },
-    {
-        label: 'Zwolniony',
-        value: 'FIRED'
-    }
-]
+export const STATUS_OPTIONS: EmployeeStatus[] = ["FIRED", "HIRED", "ON_LEAVE"];
+
+export const useTranslateStatus = (): {
+  translateStatus: (s: EmployeeStatus) => string;
+} => {
+  const { t } = useTranslation();
+
+  const translateStatus = (s: EmployeeStatus) => t("status_" + s);
+
+  return { translateStatus };
+};

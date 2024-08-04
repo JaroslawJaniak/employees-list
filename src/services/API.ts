@@ -1,7 +1,7 @@
 import { Employee } from "../models/Employee";
 
 export const createEmployee = (newEmployee: Omit<Employee, "id">) => {
-  const apiUrl = "http://localhost:3002/employees";
+  const apiUrl = "http://localhost:3001/employees";
 
   return fetch(apiUrl, {
     method: "POST",
@@ -16,7 +16,7 @@ export const createEmployee = (newEmployee: Omit<Employee, "id">) => {
 };
 
 export const editEmployee = (employee: Employee) => {
-  const apiUrl = "http://localhost:3002/employees/" + employee.id;
+  const apiUrl = "http://localhost:3001/employees/" + employee.id;
 
   return fetch(apiUrl, {
     method: "PUT",
@@ -30,8 +30,20 @@ export const editEmployee = (employee: Employee) => {
   });
 };
 
+export const deleteEmployee = (id: string): Promise<boolean> => {
+  const apiUrl = "http://localhost:3001/employees/" + id;
+
+  return fetch(apiUrl, { method: "DELETE" }).then((response) => {
+    if (response.ok) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+};
+
 export const getEmployee = (id: string): Promise<Employee> => {
-  const apiUrl = "http://localhost:3002/employees/" + id;
+  const apiUrl = "http://localhost:3001/employees/" + id;
 
   return fetch(apiUrl, { method: "GET" }).then((response) => {
     if (response.ok) {
@@ -45,7 +57,7 @@ export const getEmployee = (id: string): Promise<Employee> => {
 };
 
 export const getAllEmployees = (): Promise<Employee[]> => {
-  const apiUrl = "http://localhost:3002/employees";
+  const apiUrl = "http://localhost:3001/employees";
 
   return fetch(apiUrl, { method: "GET" }).then((response) => {
     if (response.ok) {

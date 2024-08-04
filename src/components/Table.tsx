@@ -182,7 +182,7 @@ export function Table({ data }: TableProps) {
         </div>
       </div>
 
-      <div className="relative overflow-x-auto shadow-lg ">
+      <div className="relative overflow-x-auto shadow-lg mb-12">
         <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 border-collapse table-fixed">
           <thead className=" text-white bg-neutral-800 dark:bg-gray-700 dark:text-gray-400">
             <tr className="h-12">

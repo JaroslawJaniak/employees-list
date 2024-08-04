@@ -47,42 +47,6 @@
       "address": "Francuska 22",
       "city": "Warszawa",
       "postalcode": "44333"
-    },
-    {
-      "id": "4a74",
-      "firstname": "Jan",
-      "lastname": "Kowalsli",
-      "birthdate": "2024-08-08",
-      "phonenumber": "123123",
-      "address": "Kraków",
-      "city": "Warszawska",
-      "postalcode": "11011",
-      "status": "URLOP",
-      "salary": "500000"
-    },
-    {
-      "id": "cbfe",
-      "firstname": "Jan",
-      "lastname": "Tester",
-      "birthdate": "1999-01-12",
-      "phonenumber": "12312323",
-      "address": "12",
-      "city": "Kraków",
-      "postalcode": "11222",
-      "status": "FIRED",
-      "salary": "50000"
-    },
-    {
-      "id": "01a3",
-      "firstname": "Jarosław",
-      "lastname": "Janiak",
-      "birthdate": "2024-08-21",
-      "phonenumber": "514651411",
-      "address": "Złota",
-      "city": "Piotrków Trybunalski",
-      "postalcode": "97-300",
-      "status": "ON_LEAVE",
-      "salary": "12000"
     }
   ]
 }
