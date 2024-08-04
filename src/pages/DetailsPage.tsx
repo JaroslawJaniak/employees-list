@@ -26,19 +26,29 @@ export function DetailsPage() {
 
     return (
       <>
-        <h1 className="uppercase">Detaile Page</h1>
-
         {data ? (
-          <section>
-            <div className="grid-cols-3 md:grid md:grid-cols-2 mb-3 ">
-              <div className="col">
+          <section className="">
+            <h1 className="pt-4 pb-4">Details</h1>
+            <hr className="my-5" />
+            <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
+              <div className="col ">
+                <label htmlFor="firstname" className="form-label">
+                  ID
+                </label>
+                <input
+                  className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                  type="text"
+                  value={data.id}
+                  readOnly
+                />
+              </div>
+              <div className="col ">
                 <label htmlFor="firstname" className="form-label">
                   Firstname
                 </label>
                 <input
-                  className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                  className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                   type="text"
-                  id="firstname"
                   value={data.firstname}
                   readOnly
                 />
@@ -50,11 +60,13 @@ export function DetailsPage() {
                 <input
                   className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                   type="text"
-                  id="lastname"
                   value={data.lastname}
                   readOnly
                 />
               </div>
+            </div>
+
+            <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
               <div className="col">
                 <label htmlFor="birthdate" className="form-label">
                   Birthdate
@@ -67,34 +79,22 @@ export function DetailsPage() {
                   readOnly
                 />
               </div>
-            </div>
-            <div className="grid-cols-3 md:grid md:grid-cols-2 mb-3 ">
-              <div className="col">
-                <label htmlFor="id" className="form-label">
-                  ID
-                </label>
-                <input
-                  type="text"
-                  className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                  id="id"
-                  value={data.id}
-                  readOnly
-                />
-              </div>
-              <div className="col">
-                <label htmlFor="phonenumber" className="form-label">
-                  Phonenumber
-                </label>
-                <input
-                  className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                  type="text"
-                  id="phonenumber"
-                  value={data.phonenumber}
-                  readOnly
-                />
+              <div className="row mb-3">
+                <div className="col">
+                  <label htmlFor="phonenumber" className="form-label">
+                    Phonenumber
+                  </label>
+                  <input
+                    className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                    type="text"
+                    value={data.phonenumber}
+                    readOnly
+                  />
+                </div>
               </div>
             </div>
-            <div className="grid-cols-3 md:grid md:grid-cols-2 mb-3 ">
+            <hr className="my-5" />
+            <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
               <div className="col">
                 <label htmlFor="address" className="form-label">
                   Address
@@ -102,7 +102,6 @@ export function DetailsPage() {
                 <input
                   type="text"
                   className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                  id="address"
                   value={data.address}
                   readOnly
                 />
@@ -114,7 +113,6 @@ export function DetailsPage() {
                 <input
                   type="text"
                   className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                  id="city"
                   value={data.city}
                   readOnly
                 />
@@ -126,13 +124,13 @@ export function DetailsPage() {
                 <input
                   type="text"
                   className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                  id="postalcode"
                   value={data.postalcode}
                   readOnly
                 />
               </div>
             </div>
-            <div className=" grid-cols-3 md:grid md:grid-cols-2 mb-3 ">
+            <hr className="my-5" />
+            <div className="lg:grid grid-cols-3 w-100 [&>*]:mb-4">
               <div className="col">
                 <label htmlFor="status" className="form-label">
                   Status
@@ -152,16 +150,16 @@ export function DetailsPage() {
                 <input
                   type="text"
                   className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                  id="salary"
                   value={data.salary}
                   readOnly
                 />
               </div>
             </div>
+            <hr className="my-5" />
             <div className="grid grid-cols-6 gap-4">
               <button
-                onClick={handleEditClick}
-                className="col-start-5 md:col-start-6 lg:col-start-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                className="col-start-5 md:col-start-6 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                type="submit"
               >
                 Edit
               </button>
