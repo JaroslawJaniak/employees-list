@@ -13,8 +13,17 @@ export function StatusSelect({name, defaultValue, onChange}: StatusSelectProps) 
     const [statusOptions] = useState(STATUS_OPTIONS);
 
     return (
-        <select onChange={onChange} defaultValue={defaultValue} className="form-control" name={name}>
-            {statusOptions.map((statusCode) => (<option key={statusCode} value={statusCode}>{t('status_' + statusCode)}</option>))}
-        </select>
-    )
+      <select
+        onChange={onChange}
+        defaultValue={defaultValue}
+        className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+        name={name}
+      >
+        {statusOptions.map((statusCode) => (
+          <option key={statusCode} value={statusCode}>
+            {t("status_" + statusCode)}
+          </option>
+        ))}
+      </select>
+    );
 }

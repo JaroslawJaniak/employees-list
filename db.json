@@ -5,24 +5,12 @@
       "firstname": "John",
       "lastname": "Doe",
       "phonenumber": 908908908,
-      "birthdate": "1996-04-04T00:00:00.000Z",
+      "birthdate": "1996-04-25T00:00:00.000Z",
       "salary": 5000,
-      "status": "Na urlopie",
+      "status": "FIRED",
       "address": "Francuska 22",
       "city": "Kraków",
       "postalcode": "44333"
-    },
-    {
-      "id": "2",
-      "firstname": "Jan",
-      "lastname": "Kowalskiego",
-      "salary": 15000,
-      "status": "Na urlopie",
-      "phonenumber": 123123123,
-      "birthdate": "1996-04-04T00:00:00.000Z",
-      "address": "Francuska 22",
-      "postalcode": "44333",
-      "city": "Kraków"
     },
     {
       "id": "1",

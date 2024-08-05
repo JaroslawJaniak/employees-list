@@ -7,6 +7,9 @@ import { useTranslation } from "react-i18next";
 import { useTranslateStatus } from "../models/StatusOption";
 import { Loader } from "../components/Loader";
 import Dialog from "../components/gpt/Dialog";
+import DialogEdit from "../components/gpt/DialogEdit";
+import { AddPage } from "./AddPage";
+import { EditPage } from "./EditPage";
 
 export function DetailsPage() {
   const location = useLocation();
@@ -29,8 +32,8 @@ export function DetailsPage() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void => {
     event.preventDefault();
-
-    navigate("/edit/" + data.id, { state: data });
+    setIsDialogEditOpen(true);
+    //navigate("/edit/" + data.id, { state: data });
   };
 
   const handleConfirmDeleteDialog = (event: React.MouseEvent): void => {
@@ -46,13 +49,15 @@ export function DetailsPage() {
   const handleDeleteClick = (event: React.MouseEvent): void => {
     event.preventDefault();
     openDialog();
-    
   };
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
+
+  const [isDialogEditOpen, setIsDialogEditOpen] = useState(false);
+  const openDialogEdit = () => setIsDialogEditOpen(true);
+  const closeDialogEdit = () => setIsDialogEditOpen(false);
 
   return (
     <>
@@ -79,12 +84,20 @@ export function DetailsPage() {
         </div>
       </Dialog>
 
+      <DialogEdit
+        isOpen={isDialogEditOpen}
+        onClose={closeDialogEdit}
+        title={t("delete_dialog_description")}
+      >
+       <EditPage/>
+      </DialogEdit>
+
       {data ? (
         <section className="mx-6 ">
           <h1 className="pt-4 pb-4">Details</h1>
           <hr className="my-5" />
           <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
-            <div className="col ">
+            <div className="">
               <label htmlFor="firstname" className="form-label">
                 ID
               </label>

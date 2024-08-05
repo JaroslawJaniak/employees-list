@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { createEmployee } from "../services/API";
 import { STATUS_OPTIONS, StatusOption } from "../models/StatusOption";
 import { useState } from "react";
+import { StatusSelect } from "../components/StatusSelect";
 
 export function AddPage() {
   const navigate = useNavigate();
@@ -121,14 +122,7 @@ export function AddPage() {
           <label htmlFor="status" className="form-label">
             Status
           </label>
-          <select
-            className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-            name="status"
-          >
-            {statusOptions.map((status) => (
-              <option value={status.value}>{status.label}</option>
-            ))}
-          </select>
+          <StatusSelect name="status"></StatusSelect>
         </div>
         <div className="col">
           <label htmlFor="salary" className="form-label">

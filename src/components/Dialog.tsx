@@ -17,7 +17,7 @@ const Dialog: React.FC<DialogProps> = ({
 
   return (
     <div className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-25 backdrop-blur-sm z-50">
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-md mt-48 mx-2">
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-md mt-12 mx-2">
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-xl font-semibold">{title}</h2>
           <button

@@ -17,7 +17,7 @@ export function EditPage() {
   const [phonenumber, setPhonenumber] = useState<number | null>(null);
   const [birthdate, setBirthdate] = useState<Date | null>(null);
   const [salary, setSalary] = useState<number | null>(null);
-  const [status, setStatus] = useState<EmployeeStatus>('ON_LEAVE');
+  const [status, setStatus] = useState<EmployeeStatus>("ON_LEAVE");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [postalcode, setPostalcode] = useState("");
@@ -94,12 +94,10 @@ export function EditPage() {
 
   return (
     <form onSubmit={handleSubmit} id="edit-form">
-      <h1 className="pt-4 pb-4">Edit Employee</h1>
-
       {data ? (
-        <section>
-          <div className="row mb-3 row-gap-3">
-            <div className="col-12 col-md-4">
+        <section className="mx-6">
+          <div className=" mb-3 [&>*]:mb-4">
+            <div className="">
               <label htmlFor="firstname" className="form-label">
                 Firstname
               </label>
@@ -109,104 +107,128 @@ export function EditPage() {
                   setFirstname(event.target.value);
                   checkValidity();
                 }}
-                className="form-control"
+                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 name="firstname"
                 required
               />
             </div>
-            <div className="col-12 col-md-4">
+            <div className="">
               <label htmlFor="lastname" className="form-label">
                 Lastname
               </label>
               <input
                 value={lastname}
                 onChange={(event) => {
-                  setLastname(event?.target.value); checkValidity();
+                  setLastname(event?.target.value);
+                  checkValidity();
                 }}
-                className="form-control"
+                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 name="lastname"
                 required
               />
             </div>
-            <div className="col-12 col-md-4">
+            <div className="">
               <label htmlFor="birthdate" className="form-label">
                 Birthdate
               </label>
               <input
                 value={formatDate(birthdate)}
-                onChange={(event) => {setBirthdate(new Date(event.target.value)); checkValidity();
+                onChange={(event) => {
+                  setBirthdate(new Date(event.target.value));
+                  checkValidity();
                 }}
-                className="form-control"
+                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="date"
                 name="birthdate"
                 required
               />
             </div>
           </div>
-          <div className="row mb-3 row-gap-3">
+          <div className="row mb-3 ">
             <div className="col-12">
               <label htmlFor="phonenumber" className="form-label">
                 Phonenumber
               </label>
               <input
                 value={phonenumber}
-                onChange={(event) => {setPhonenumber(+event.target.value); checkValidity();
+                onChange={(event) => {
+                  setPhonenumber(+event.target.value);
+                  checkValidity();
                 }}
-                className="form-control"
+                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 name="phonenumber"
                 required
               />
             </div>
           </div>
-          <div className="row mb-3 row-gap-3">
-            <div className="col-12 col-md-4">
+          <div className="row mb-3 ">
+            <div className="">
               <label htmlFor="address" className="form-label">
                 Address
               </label>
               <input
                 value={address}
-                onChange={(event) => {setAddress(event.target.value); checkValidity();
+                onChange={(event) => {
+                  setAddress(event.target.value);
+                  checkValidity();
                 }}
                 type="text"
-                className="form-control"
+                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="address"
                 required
               />
             </div>
-            <div className="col-12 col-md-4">
+            <div className="">
               <label htmlFor="city" className="form-label">
                 City
               </label>
               <input
                 value={city}
-                onChange={(event) => {setCity(event.target.value); checkValidity();
+                onChange={(event) => {
+                  setCity(event.target.value);
+                  checkValidity();
                 }}
                 type="text"
-                className="form-control"
+                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="city"
                 required
               />
             </div>
-            <div className="col-12 col-md-4">
+            <div className="">
               <label htmlFor="postalcode" className="form-label">
                 Postal Code
               </label>
               <input
                 value={postalcode}
-                onChange={(event) => {setPostalcode(event.target.value); checkValidity();
+                onChange={(event) => {
+                  setPostalcode(event.target.value);
+                  checkValidity();
                 }}
                 type="text"
-                className="form-control"
+                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="postalcode"
                 required
               />
             </div>
           </div>
-          <div className="row mb-3 row-gap-3">
-            <div className="col-12 col-md-4">
+          <div className="row mb-3">
+            <div className="">
+              <label htmlFor="salary" className="form-label">
+                Salary
+              </label>
+              <input
+                value={salary?.toString()}
+                onChange={(event) => setSalary(+event.target.value)}
+                type="text"
+                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                name="salary"
+                required
+              />
+            </div>
+            <div className="">
               <label htmlFor="status" className="form-label">
                 Status
               </label>
@@ -216,25 +238,14 @@ export function EditPage() {
                 name="status"
               ></StatusSelect>
             </div>
-            <div className="col-12 col-md-4">
-              <label htmlFor="salary" className="form-label">
-                Salary
-              </label>
-              <input
-                value={salary?.toString()}
-                onChange={(event) => setSalary(+event.target.value)}
-                type="text"
-                className="form-control"
-                name="salary"
-                required
-              />
-            </div>
           </div>
-          <div className="row">
+          <hr className="my-5" />
+          <div className="grid grid-cols-6 gap-4">
             <button
               disabled={!isFormValid}
               className={
-                "btn btn-primary " + (isFormValid ? "" : "btn-disabled")
+                "col-start-3 md:col-start-6 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" +
+                (isFormValid ? "" : "btn-disabled")
               }
               type="submit"
             >
