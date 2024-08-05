@@ -1,24 +1,34 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { EmployeesContext } from "../context/EmployeesContext";
 import { Employee } from "../models/Employee";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getEmployee, deleteEmployee } from "../services/API";
-import { ConfirmDialog } from "../components/ConfirmDialog";
+
 import { useTranslation } from "react-i18next";
 import { useTranslateStatus } from "../models/StatusOption";
 import { Loader } from "../components/Loader";
 import Dialog from "../components/gpt/Dialog";
 import DialogEdit from "../components/gpt/DialogEdit";
-import { AddPage } from "./AddPage";
+
 import { EditPage } from "./EditPage";
 
 export function DetailsPage() {
+  const context = useContext(EmployeesContext);
   const location = useLocation();
   const navigate = useNavigate();
+
   const { translateStatus } = useTranslateStatus();
   const { t } = useTranslation();
+
   const { id } = useParams();
+
   const [data, setData] = useState<Employee>(location.state);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
+
+  const closeDialogEdit = () => context?.setIsDialogEditOpen(false);
 
   useEffect(() => {
     if (!data && id) {
@@ -32,8 +42,14 @@ export function DetailsPage() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void => {
     event.preventDefault();
-    setIsDialogEditOpen(true);
+    context?.setIsDialogEditOpen(true);
     //navigate("/edit/" + data.id, { state: data });
+
+    if (context?.isDialogEditOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   };
 
   const handleConfirmDeleteDialog = (event: React.MouseEvent): void => {
@@ -50,14 +66,6 @@ export function DetailsPage() {
     event.preventDefault();
     openDialog();
   };
-
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const openDialog = () => setIsDialogOpen(true);
-  const closeDialog = () => setIsDialogOpen(false);
-
-  const [isDialogEditOpen, setIsDialogEditOpen] = useState(false);
-  const openDialogEdit = () => setIsDialogEditOpen(true);
-  const closeDialogEdit = () => setIsDialogEditOpen(false);
 
   return (
     <>
@@ -85,15 +93,15 @@ export function DetailsPage() {
       </Dialog>
 
       <DialogEdit
-        isOpen={isDialogEditOpen}
+        isOpen={context?.isDialogEditOpen}
         onClose={closeDialogEdit}
         title={t("delete_dialog_description")}
       >
-       <EditPage/>
+        <EditPage />
       </DialogEdit>
 
       {data ? (
-        <section className="mx-6 ">
+        <section className={`mx-6 text-sm`}>
           <h1 className="pt-4 pb-4">Details</h1>
           <hr className="my-5" />
           <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">

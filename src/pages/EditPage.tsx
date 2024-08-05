@@ -93,10 +93,10 @@ export function EditPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit} id="edit-form">
+    <form onSubmit={handleSubmit} id="edit-form ">
       {data ? (
-        <section className="mx-6">
-          <div className=" mb-3 [&>*]:mb-4">
+        <section className="lg:mx-6 ">
+          <div className="sm:grid grid-cols-3 [&>*]:mb-4">
             <div className="">
               <label htmlFor="firstname" className="form-label">
                 Firstname
@@ -107,7 +107,7 @@ export function EditPage() {
                   setFirstname(event.target.value);
                   checkValidity();
                 }}
-                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 name="firstname"
                 required
@@ -123,12 +123,14 @@ export function EditPage() {
                   setLastname(event?.target.value);
                   checkValidity();
                 }}
-                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 name="lastname"
                 required
               />
             </div>
+          </div>
+          <div className="sm:grid grid-cols-3 [&>*]:mb-4">
             <div className="">
               <label htmlFor="birthdate" className="form-label">
                 Birthdate
@@ -139,15 +141,13 @@ export function EditPage() {
                   setBirthdate(new Date(event.target.value));
                   checkValidity();
                 }}
-                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="date"
                 name="birthdate"
                 required
               />
             </div>
-          </div>
-          <div className="row mb-3 ">
-            <div className="col-12">
+            <div className="">
               <label htmlFor="phonenumber" className="form-label">
                 Phonenumber
               </label>
@@ -157,14 +157,14 @@ export function EditPage() {
                   setPhonenumber(+event.target.value);
                   checkValidity();
                 }}
-                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 name="phonenumber"
                 required
               />
             </div>
           </div>
-          <div className="row mb-3 ">
+          <div className="sm:grid grid-cols-3 mb-3 sm:mb-2 lg:mb-3 ">
             <div className="">
               <label htmlFor="address" className="form-label">
                 Address
@@ -176,7 +176,7 @@ export function EditPage() {
                   checkValidity();
                 }}
                 type="text"
-                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="address"
                 required
               />
@@ -192,7 +192,7 @@ export function EditPage() {
                   checkValidity();
                 }}
                 type="text"
-                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="city"
                 required
               />
@@ -208,13 +208,13 @@ export function EditPage() {
                   checkValidity();
                 }}
                 type="text"
-                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="postalcode"
                 required
               />
             </div>
           </div>
-          <div className="row mb-3">
+          <div className="sm:grid grid-cols-3 mb-3 sm:mb-2 lg:mb-3">
             <div className="">
               <label htmlFor="salary" className="form-label">
                 Salary
@@ -223,7 +223,7 @@ export function EditPage() {
                 value={salary?.toString()}
                 onChange={(event) => setSalary(+event.target.value)}
                 type="text"
-                className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="salary"
                 required
               />
@@ -239,12 +239,12 @@ export function EditPage() {
               ></StatusSelect>
             </div>
           </div>
-          <hr className="my-5" />
+          <hr className="my-5 sm:my-1" />
           <div className="grid grid-cols-6 gap-4">
             <button
               disabled={!isFormValid}
               className={
-                "col-start-3 md:col-start-6 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" +
+                " col-start-5 md:col-start-6 text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 sm:py-1 lg:py-2.5 py-2.5 mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" +
                 (isFormValid ? "" : "btn-disabled")
               }
               type="submit"

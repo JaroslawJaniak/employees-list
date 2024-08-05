@@ -22,24 +22,20 @@ export function EmployeesPage() {
 
   return (
     <>
-      <div className="mb-8">
-        <h1 className="uppercase">Employees</h1>
-      </div>
-
       {data.length > 0 ? (
         <>
           <Table data={data}></Table>
-          <div className="grid grid-cols-6 gap-4">
+          <div className="grid grid-cols-12 ">
             <button
               onClick={handleAddClick}
-              className="col-start-4 md:col-start-6 lg:col-start-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-48 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              className="col-start-7 sm:col-start-10 lg:col-start-11 sm:mb-12  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-48 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
             >
               Add new employee
             </button>
           </div>
         </>
       ) : (
-        <Loader/>
+        <Loader />
       )}
     </>
   );

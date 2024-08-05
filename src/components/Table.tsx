@@ -150,7 +150,7 @@ export function Table({ data }: TableProps) {
 
   return (
     <>
-      <div className="pb-4 bg-white dark:bg-gray-900">
+      <div className="mt-24 pb-4 bg-white dark:bg-gray-900 text-sm">
         <label htmlFor="table-search" className="sr-only">
           Search
         </label>
@@ -182,8 +182,8 @@ export function Table({ data }: TableProps) {
         </div>
       </div>
 
-      <div className="relative overflow-x-auto shadow-lg mb-12">
-        <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 border-collapse table-fixed">
+      <div className="relative overflow-x-auto shadow-lg mb-12 sm:mb-8 lg:mb-12">
+        <table className="w-full text-xs text-center text-gray-500 dark:text-gray-400 border-collapse table-fixed">
           <thead className=" text-white bg-neutral-800 dark:bg-gray-700 dark:text-gray-400">
             <tr className="h-12">
               <th

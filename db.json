@@ -1,18 +1,6 @@
 {
   "employees": [
     {
-      "id": "5",
-      "firstname": "John",
-      "lastname": "Doe",
-      "phonenumber": 908908908,
-      "birthdate": "1996-04-25T00:00:00.000Z",
-      "salary": 5000,
-      "status": "FIRED",
-      "address": "Francuska 22",
-      "city": "Kraków",
-      "postalcode": "44333"
-    },
-    {
       "id": "1",
       "firstname": "Adam",
       "lastname": "Nowak",
@@ -35,6 +23,18 @@
       "address": "Francuska 22",
       "city": "Warszawa",
       "postalcode": "44333"
+    },
+    {
+      "id": "4646",
+      "firstname": "Jarosław",
+      "lastname": "Janiak",
+      "phonenumber": "514651411",
+      "birthdate": "2024-08-21T00:00:00.000Z",
+      "salary": "5000",
+      "status": "ON_LEAVE",
+      "address": "Złota 1212",
+      "city": "Piotrków Trybunalski",
+      "postalcode": "97-300"
     }
   ]
 }
