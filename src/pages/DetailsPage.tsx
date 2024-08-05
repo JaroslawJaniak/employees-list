@@ -7,8 +7,8 @@ import { getEmployee, deleteEmployee } from "../services/API";
 import { useTranslation } from "react-i18next";
 import { useTranslateStatus } from "../models/StatusOption";
 import { Loader } from "../components/Loader";
-import Dialog from "../components/gpt/Dialog";
-import DialogEdit from "../components/gpt/DialogEdit";
+import DialogConfirm from "../components/DialogConfirm";
+import DialogEdit from "../components/DialogEdit";
 
 import { EditPage } from "./EditPage";
 
@@ -32,6 +32,8 @@ export function DetailsPage() {
 
   useEffect(() => {
     if (!data && id) {
+      console.log("0");
+
       getEmployee(id).then((employee) => {
         setData(employee);
       });
@@ -69,7 +71,7 @@ export function DetailsPage() {
 
   return (
     <>
-      <Dialog
+      <DialogConfirm
         isOpen={isDialogOpen}
         onClose={closeDialog}
         title={t("delete_dialog_description")}
@@ -90,7 +92,7 @@ export function DetailsPage() {
             NO
           </button>
         </div>
-      </Dialog>
+      </DialogConfirm>
 
       <DialogEdit
         isOpen={context?.isDialogEditOpen}
@@ -123,7 +125,11 @@ export function DetailsPage() {
               <input
                 className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
-                value={data.firstname}
+                value={
+                  context?.employee?.firstname
+                    ? context?.employee?.firstname
+                    : data.firstname
+                }
                 readOnly
               />
             </div>
@@ -134,7 +140,11 @@ export function DetailsPage() {
               <input
                 className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
-                value={data.lastname}
+                value={
+                  context?.employee?.lastname
+                    ? context?.employee?.lastname
+                    : data.lastname
+                }
                 readOnly
               />
             </div>
@@ -149,7 +159,11 @@ export function DetailsPage() {
                 className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 id="birthdate"
-                value={data?.birthdate?.toDateString()}
+                value={
+                  context?.employee?.birthdate
+                    ? context?.employee?.birthdate
+                    : data?.birthdate?.toDateString()
+                }
                 readOnly
               />
             </div>
@@ -161,7 +175,11 @@ export function DetailsPage() {
                 <input
                   className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                   type="text"
-                  value={data.phonenumber}
+                  value={
+                    context?.employee?.phonenumber
+                      ? context?.employee?.phonenumber
+                      : data.phonenumber
+                  }
                   readOnly
                 />
               </div>
@@ -176,7 +194,11 @@ export function DetailsPage() {
               <input
                 type="text"
                 className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                value={data.address}
+                value={
+                  context?.employee?.address
+                    ? context?.employee?.address
+                    : data.address
+                }
                 readOnly
               />
             </div>
@@ -187,7 +209,9 @@ export function DetailsPage() {
               <input
                 type="text"
                 className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                value={data.city}
+                value={
+                  context?.employee?.city ? context?.employee?.city : data.city
+                }
                 readOnly
               />
             </div>
@@ -198,7 +222,11 @@ export function DetailsPage() {
               <input
                 type="text"
                 className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                value={data.postalcode}
+                value={
+                  context?.employee?.zipcode
+                    ? context?.employee?.zipcode
+                    : data.zipcode
+                }
                 readOnly
               />
             </div>
@@ -213,7 +241,11 @@ export function DetailsPage() {
                 type="text"
                 className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 id="status"
-                value={data.status}
+                value={
+                  context?.employee?.status
+                    ? context?.employee?.status
+                    : data.status
+                }
                 readOnly
               />
             </div>
@@ -224,7 +256,11 @@ export function DetailsPage() {
               <input
                 type="text"
                 className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                value={data.salary}
+                value={
+                  context?.employee?.salary
+                    ? context?.employee?.salary
+                    : data.salary
+                }
                 readOnly
               />
             </div>
@@ -232,14 +268,14 @@ export function DetailsPage() {
           <hr className="my-5" />
           <div className="grid grid-cols-6 gap-4">
             <button
-              className="col-start-3 md:col-start-6 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              className="col-start-3 sm:col-start-5 md:col-start-6 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
               type="submit"
               onClick={handleEditClick}
             >
               Edit
             </button>
             <button
-              className="col-start-5 md:col-start-7 text-white bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 "
+              className="col-start-5 sm:col-start-6 md:col-start-7 text-white bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 "
               type="submit"
               onClick={handleDeleteClick}
             >

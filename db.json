@@ -2,7 +2,7 @@
   "employees": [
     {
       "id": "1",
-      "firstname": "Adam",
+      "firstname": "Adam Alan B",
       "lastname": "Nowak",
       "phonenumber": 345345345,
       "birthdate": "1996-04-04T00:00:00.000Z",
@@ -14,27 +14,15 @@
     },
     {
       "id": "3",
-      "firstname": "Adam",
-      "lastname": "Nowak",
-      "phonenumber": 678678678,
+      "firstname": "Jarosław",
+      "lastname": "Nowak BCDDEFZZZ",
+      "phonenumber": 514651411,
       "birthdate": "2024-11-19T00:00:00.000Z",
       "salary": 24000,
       "status": "Na urlopie",
-      "address": "Francuska 22",
-      "city": "Warszawa",
-      "postalcode": "44333"
-    },
-    {
-      "id": "4646",
-      "firstname": "Jarosław",
-      "lastname": "Janiak",
-      "phonenumber": "514651411",
-      "birthdate": "2024-08-21T00:00:00.000Z",
-      "salary": "5000",
-      "status": "ON_LEAVE",
-      "address": "Złota 1212",
+      "address": "Złota",
       "city": "Piotrków Trybunalski",
-      "postalcode": "97-300"
+      "zipcode": "97-800"
     }
   ]
 }

@@ -7,8 +7,8 @@ export interface Employee {
   phonenumber: number;
   address: string;
   city: string;
-  postalcode: string;
+  zipcode: string;
   birthdate: Date;
 }
 
-export type EmployeeStatus = 'HIRED' | 'FIRED' | 'ON_LEAVE';
+export type EmployeeStatus = "HIRED" | "FIRED" | "ON_LEAVE";

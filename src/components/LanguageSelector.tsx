@@ -68,7 +68,7 @@ export function LanguageSelector() {
 
   return (
     <>
-      <div className="col-end-3 md:col-end-4 flex">
+      <div className="col-start-13 sm:col-start-13 flex">
         {selectedLanguage === "pl" ? flagPLSvg : flagENGSvg}
         {}
         <select

@@ -1,11 +1,13 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { editEmployee, getEmployee } from "../services/API";
 import { STATUS_OPTIONS, StatusOption } from "../models/StatusOption";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Employee, EmployeeStatus } from "../models/Employee";
-import { StatusSelect } from "../components/StatusSelect";
+import { SelectStatus } from "../components/SelectStatus";
+import { EmployeesContext } from "../context/EmployeesContext";
 
 export function EditPage() {
+  const context = useContext(EmployeesContext);
   const navigate = useNavigate();
   const location = useLocation();
   const { id } = useParams();
@@ -46,7 +48,7 @@ export function EditPage() {
     setStatus(data.status);
     setAddress(data.address);
     setCity(data.city);
-    setPostalcode(data.postalcode);
+    setPostalcode(data.zipcode);
   };
 
   const checkValidity = (): void => {
@@ -69,11 +71,14 @@ export function EditPage() {
       status,
       address,
       city,
-      postalcode,
+      zipcode: postalcode,
     };
 
     editEmployee(employee).then(() => {
-      navigate("/");
+      context?.setIsDialogEditOpen(false);
+      context?.setEmployee(employee);
+      setData(employee);
+      navigate("/details/" + employee.id, { state: employee });
     });
   };
 
@@ -96,7 +101,7 @@ export function EditPage() {
     <form onSubmit={handleSubmit} id="edit-form ">
       {data ? (
         <section className="lg:mx-6 ">
-          <div className="sm:grid grid-cols-3 [&>*]:mb-4">
+          <div className="sm:grid sm:grid-cols-3 md:grid-cols-2 grid-cols-3 [&>*]:mb-4">
             <div className="">
               <label htmlFor="firstname" className="form-label">
                 Firstname
@@ -107,7 +112,7 @@ export function EditPage() {
                   setFirstname(event.target.value);
                   checkValidity();
                 }}
-                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-80 sm:w-48  md:w-64 lg:w-80  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 name="firstname"
                 required
@@ -123,14 +128,13 @@ export function EditPage() {
                   setLastname(event?.target.value);
                   checkValidity();
                 }}
-                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-80 sm:w-48  md:w-64 lg:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 name="lastname"
                 required
               />
             </div>
-          </div>
-          <div className="sm:grid grid-cols-3 [&>*]:mb-4">
+
             <div className="">
               <label htmlFor="birthdate" className="form-label">
                 Birthdate
@@ -141,7 +145,7 @@ export function EditPage() {
                   setBirthdate(new Date(event.target.value));
                   checkValidity();
                 }}
-                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-80 sm:w-48  md:w-64 lg:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="date"
                 name="birthdate"
                 required
@@ -157,14 +161,13 @@ export function EditPage() {
                   setPhonenumber(+event.target.value);
                   checkValidity();
                 }}
-                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-80 sm:w-48  md:w-64 lg:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 type="text"
                 name="phonenumber"
                 required
               />
             </div>
-          </div>
-          <div className="sm:grid grid-cols-3 mb-3 sm:mb-2 lg:mb-3 ">
+
             <div className="">
               <label htmlFor="address" className="form-label">
                 Address
@@ -176,7 +179,7 @@ export function EditPage() {
                   checkValidity();
                 }}
                 type="text"
-                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-80 sm:w-48  md:w-64 lg:w-80  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="address"
                 required
               />
@@ -192,7 +195,7 @@ export function EditPage() {
                   checkValidity();
                 }}
                 type="text"
-                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-80 sm:w-48  md:w-64 lg:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="city"
                 required
               />
@@ -208,13 +211,12 @@ export function EditPage() {
                   checkValidity();
                 }}
                 type="text"
-                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-80 sm:w-48  md:w-64 lg:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="postalcode"
                 required
               />
             </div>
-          </div>
-          <div className="sm:grid grid-cols-3 mb-3 sm:mb-2 lg:mb-3">
+
             <div className="">
               <label htmlFor="salary" className="form-label">
                 Salary
@@ -223,7 +225,7 @@ export function EditPage() {
                 value={salary?.toString()}
                 onChange={(event) => setSalary(+event.target.value)}
                 type="text"
-                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-96 sm:w-64  bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                className="block pt-1 pb-1 ps-10 mb-3 sm:mb-2 lg:mb-3 text-gray-900 border border-gray-300 rounded w-80 sm:w-48 md:w-64 lg:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
                 name="salary"
                 required
               />
@@ -232,19 +234,18 @@ export function EditPage() {
               <label htmlFor="status" className="form-label">
                 Status
               </label>
-              <StatusSelect
+              <SelectStatus
                 defaultValue={status}
                 onChange={(event) => setStatus(event.target.value)}
                 name="status"
-              ></StatusSelect>
+              ></SelectStatus>
             </div>
           </div>
-          <hr className="my-5 sm:my-1" />
+          <hr className="my-3 md:my-2" />
           <div className="grid grid-cols-6 gap-4">
             <button
-              disabled={!isFormValid}
               className={
-                " col-start-5 md:col-start-6 text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 sm:py-1 lg:py-2.5 py-2.5 mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" +
+                " col-start-5 lg:col-start-6 text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-1 lg:py-2.5 mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" +
                 (isFormValid ? "" : "btn-disabled")
               }
               type="submit"

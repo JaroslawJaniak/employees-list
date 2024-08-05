@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Table } from "../components/Table";
 import { Employee } from "../models/Employee";
 import { useNavigate } from "react-router-dom";
 import { getAllEmployees } from "../services/API";
 import { Loader } from "../components/Loader";
+import { EmployeesContext } from "../context/EmployeesContext";
 
 export function EmployeesPage() {
+  const context = useContext(EmployeesContext);
   const navigate = useNavigate();
   const [data, setData] = useState<Employee[]>([]);
 
   useEffect(() => {
     getAllEmployees().then((employees) => {
       setData(employees);
+      context?.setEmployees(employees);
     });
   }, []);
 

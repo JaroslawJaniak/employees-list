@@ -7,8 +7,6 @@ import { EditPage } from "./pages/EditPage";
 import { BackButton } from "./components/BackButton";
 import { LanguageSelector } from "./components/LanguageSelector";
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +31,7 @@ function App() {
     <>
       <main className="bg-white p-2 h-screen relative">
         <nav className=" p-3 fixed md:static ">
-          <div className="grid grid-cols-2 ">
+          <div className="grid grid-cols-12 ">
             <BackButton />
             <LanguageSelector />
           </div>

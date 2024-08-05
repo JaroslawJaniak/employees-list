@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { createEmployee } from "../services/API";
 import { STATUS_OPTIONS, StatusOption } from "../models/StatusOption";
 import { useState } from "react";
-import { StatusSelect } from "../components/StatusSelect";
+import { SelectStatus } from "../components/SelectStatus";
 
 export function AddPage() {
   const navigate = useNavigate();
@@ -122,7 +122,7 @@ export function AddPage() {
           <label htmlFor="status" className="form-label">
             Status
           </label>
-          <StatusSelect name="status"></StatusSelect>
+          <SelectStatus name="status"></SelectStatus>
         </div>
         <div className="col">
           <label htmlFor="salary" className="form-label">

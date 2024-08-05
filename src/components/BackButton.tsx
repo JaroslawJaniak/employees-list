@@ -1,13 +1,14 @@
 export function BackButton() {
-  const onBackClick = (event: React.MouseEvent): void => {
+  const onClick = (event: React.MouseEvent): void => {
     event.preventDefault();
-
-    window.history.back();
+    //window.history.back();
+    window.location.href = window.location.origin;
+    
   };
 
   return (
     <button
-      onClick={onBackClick}
+      onClick={onClick}
       className="col-start-1  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-1 w-16 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
     >
       <svg
