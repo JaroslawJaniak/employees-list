@@ -17,7 +17,8 @@ export const createEmployee = (newEmployee: Omit<Employee, "id">) => {
 };
 
 export const editEmployee = (employee: Employee) => {
-  const apiUrl = "http://localhost:3001/employees/" + employee.id;
+  //const apiUrl = "http://localhost:3001/employees/" + employee.id;
+  const apiUrl = apiURL + employee.id;
 
   return fetch(apiUrl, {
     method: "PUT",

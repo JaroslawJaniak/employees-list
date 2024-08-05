@@ -27,7 +27,7 @@ export function EmployeesPage() {
     <>
       {data.length > 0 ? (
         <>
-          <Table data={data}></Table>
+          {" "}
           <div className="grid grid-cols-12 ">
             <button
               onClick={handleAddClick}
@@ -36,6 +36,8 @@ export function EmployeesPage() {
               Add new employee
             </button>
           </div>
+          <Table data={data}></Table>
+          
         </>
       ) : (
         <Loader />

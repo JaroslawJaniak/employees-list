@@ -150,7 +150,7 @@ export function Table({ data }: TableProps) {
 
   return (
     <>
-      <div className="mt-24 pb-4 bg-white dark:bg-gray-900 text-sm">
+      <div className=" pb-4 bg-white dark:bg-gray-900 text-sm">
         <label htmlFor="table-search" className="sr-only">
           Search
         </label>
