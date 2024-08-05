@@ -29,7 +29,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <main className="bg-white p-2 h-screen relative">
+      <main className="bg-white p-2 min-h-screen relative">
         <nav className=" p-3 fixed md:static ">
           <div className="grid grid-cols-12 ">
             <BackButton />

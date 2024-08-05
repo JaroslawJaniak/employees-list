@@ -1,18 +1,6 @@
 {
   "employees": [
     {
-      "id": "1",
-      "firstname": "Adam Alan B",
-      "lastname": "Nowak",
-      "phonenumber": 345345345,
-      "birthdate": "1996-04-04T00:00:00.000Z",
-      "salary": 25000,
-      "status": "Na urlopie",
-      "address": "Francuska 22",
-      "city": "Kraków",
-      "postalcode": "44333"
-    },
-    {
       "id": "3",
       "firstname": "Jarosław",
       "lastname": "Nowak BCDDEFZZZ",

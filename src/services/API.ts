@@ -1,4 +1,5 @@
 import { Employee } from "../models/Employee";
+import { apiURL } from "./apiURL";
 
 export const createEmployee = (newEmployee: Omit<Employee, "id">) => {
   const apiUrl = "http://localhost:3001/employees";
@@ -57,7 +58,10 @@ export const getEmployee = (id: string): Promise<Employee> => {
 };
 
 export const getAllEmployees = (): Promise<Employee[]> => {
-  const apiUrl = "http://localhost:3001/employees";
+  //const apiUrl = "http://localhost:3001/employees";
+  const apiUrl = apiURL;
+  console.log(apiURL);
+  
 
   return fetch(apiUrl, { method: "GET" }).then((response) => {
     if (response.ok) {
