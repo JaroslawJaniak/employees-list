@@ -239,7 +239,7 @@ export function Table({ data }: TableProps) {
             {displayData.map((item) => (
               <tr
                 key={item.id}
-                className="cursor-pointer py-3 px-6 border-b border-neutral-200 hover:bg-neutral-100"
+                className="cursor-pointer py-3 px-6 border-b border-neutral-200 hover:bg-neutral-100 hover:shadow-lg"
                 onClick={(event) => handleRowClick(event, item)}
               >
                 <td className="w-4 p-4">{item.id}</td>

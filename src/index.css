@@ -23,14 +23,15 @@ body {
   cursor: pointer;
 }
 
-.cursor-pointer:hover td {
-  background-color: var(--bs-gray-200);
-}
 
 .btn-disabled {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity)) /* #374151 */;
 }
+
+ /* tbody tr:nth-child(odd) {
+   background-color: rgb(241, 241, 241);
+} */
 
 .details-form  input{
 cursor:default;
