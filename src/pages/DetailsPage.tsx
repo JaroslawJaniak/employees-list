@@ -104,7 +104,9 @@ export function DetailsPage() {
 
       {data ? (
         <section className={`mx-6 text-sm`}>
-          <h1 className="pt-4 pb-4 uppercase text-xl">Details:</h1>
+          <h1 className="pt-4 pb-4 uppercase text-xl">
+            {t("details_page_title")}:
+          </h1>
           <hr className="my-5" />
           <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
             <div className="">
@@ -153,7 +155,7 @@ export function DetailsPage() {
           <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
             <div className="col">
               <label htmlFor="birthdate" className="form-label">
-                {t("bithdate")}
+                {t("birthdate")}
               </label>
               <input
                 className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
@@ -161,7 +163,7 @@ export function DetailsPage() {
                 id="birthdate"
                 value={
                   context?.employee?.birthdate
-                    ? context?.employee?.birthdate
+                    ? context?.employee?.birthdate.toDateString()
                     : data?.birthdate?.toDateString()
                 }
                 readOnly

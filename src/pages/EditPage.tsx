@@ -209,7 +209,7 @@ export function EditPage() {
               <input
                 value={zipcode}
                 onChange={(event) => {
-                  setPostalcode(event.target.value);
+                  setZipcode(event.target.value);
                   checkValidity();
                 }}
                 type="text"

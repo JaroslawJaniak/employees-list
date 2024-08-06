@@ -832,13 +832,13 @@
       "id": "c01d",
       "firstname": "Jarosław",
       "lastname": "Janiak",
-      "birthdate": "2024-08-23",
       "phonenumber": "514651411",
+      "birthdate": "1981-09-29T00:00:00.000Z",
+      "salary": "5000",
+      "status": "HIRED",
       "address": "Złota",
       "city": "Piotrków Trybunalski",
-      "postalcode": "97-300",
-      "status": "HIRED",
-      "salary": "5000"
+      "zipcode": "97-300"
     },
     {
       "id": "1b86",
