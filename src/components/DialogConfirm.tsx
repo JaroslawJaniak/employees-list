@@ -1,5 +1,6 @@
 import React from "react";
 
+
 interface DialogProps {
   isOpen: boolean;
   onClose: () => void;
@@ -21,12 +22,14 @@ const Dialog: React.FC<DialogProps> = ({
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-xl font-semibold">{title}</h2>
           <button
-            className="text-2xl leading-none hover:text-red-500"
+            className="text-4xl leading-none hover:text-red-500"
             onClick={onClose}
           >
             &times;
           </button>
+         
         </div>
+        
         <div className="p-4">{children}</div>
       </div>
     </div>

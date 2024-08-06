@@ -1,16 +1,18 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { editEmployee, getEmployee } from "../services/API";
+import { editDataEmployee, getDataEmployee } from "../services/API";
 import { STATUS_OPTIONS, StatusOption } from "../models/StatusOption";
 import { useEffect, useState, useContext } from "react";
 import { Employee, EmployeeStatus } from "../models/Employee";
 import { SelectStatus } from "../components/SelectStatus";
 import { EmployeesContext } from "../context/EmployeesContext";
+import { useTranslation } from "react-i18next";
 
 export function EditPage() {
   const context = useContext(EmployeesContext);
   const navigate = useNavigate();
   const location = useLocation();
   const { id } = useParams();
+  const { t } = useTranslation();
 
   const [data, setData] = useState<Employee>(location.state);
   const [statusOptions] = useState<StatusOption[]>(STATUS_OPTIONS);
@@ -22,13 +24,13 @@ export function EditPage() {
   const [status, setStatus] = useState<EmployeeStatus>("ON_LEAVE");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [postalcode, setPostalcode] = useState("");
+  const [zipcode, setZipcode] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     if (!data && !!id) {
       // Zaladuj dane z API
-      getEmployee(id).then((employee) => {
+      getDataEmployee(id).then((employee) => {
         setData(employee);
         setFormState(employee);
         checkValidity();
@@ -48,7 +50,7 @@ export function EditPage() {
     setStatus(data.status);
     setAddress(data.address);
     setCity(data.city);
-    setPostalcode(data.zipcode);
+    setZipcode(data.zipcode);
   };
 
   const checkValidity = (): void => {
@@ -71,10 +73,10 @@ export function EditPage() {
       status,
       address,
       city,
-      zipcode: postalcode,
+      zipcode,
     };
 
-    editEmployee(employee).then(() => {
+    editDataEmployee(employee).then(() => {
       context?.setIsDialogEditOpen(false);
       context?.setEmployee(employee);
       setData(employee);
@@ -98,13 +100,13 @@ export function EditPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit} id="edit-form ">
+    <form onSubmit={handleSubmit} id="edit-form" className="bgImage">
       {data ? (
         <section className="lg:mx-6 ">
           <div className="sm:grid sm:grid-cols-3 md:grid-cols-2 grid-cols-3 [&>*]:mb-4">
             <div className="">
               <label htmlFor="firstname" className="form-label">
-                Firstname
+                {t("firstname")}
               </label>
               <input
                 value={firstname}
@@ -120,7 +122,7 @@ export function EditPage() {
             </div>
             <div className="">
               <label htmlFor="lastname" className="form-label">
-                Lastname
+                {t("lastname")}
               </label>
               <input
                 value={lastname}
@@ -137,7 +139,7 @@ export function EditPage() {
 
             <div className="">
               <label htmlFor="birthdate" className="form-label">
-                Birthdate
+                {t("birthdate")}
               </label>
               <input
                 value={formatDate(birthdate)}
@@ -153,7 +155,7 @@ export function EditPage() {
             </div>
             <div className="">
               <label htmlFor="phonenumber" className="form-label">
-                Phonenumber
+                {t("phonenumber")}
               </label>
               <input
                 value={phonenumber}
@@ -170,7 +172,7 @@ export function EditPage() {
 
             <div className="">
               <label htmlFor="address" className="form-label">
-                Address
+                {t("address")}
               </label>
               <input
                 value={address}
@@ -186,7 +188,7 @@ export function EditPage() {
             </div>
             <div className="">
               <label htmlFor="city" className="form-label">
-                City
+                {t("city")}
               </label>
               <input
                 value={city}
@@ -202,10 +204,10 @@ export function EditPage() {
             </div>
             <div className="">
               <label htmlFor="postalcode" className="form-label">
-                Postal Code
+                {t("postalcode")}
               </label>
               <input
-                value={postalcode}
+                value={zipcode}
                 onChange={(event) => {
                   setPostalcode(event.target.value);
                   checkValidity();
@@ -219,7 +221,7 @@ export function EditPage() {
 
             <div className="">
               <label htmlFor="salary" className="form-label">
-                Salary
+                {t("salary")}
               </label>
               <input
                 value={salary?.toString()}
@@ -232,7 +234,7 @@ export function EditPage() {
             </div>
             <div className="">
               <label htmlFor="status" className="form-label">
-                Status
+                {t("status")}
               </label>
               <SelectStatus
                 defaultValue={status}

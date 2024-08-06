@@ -4,7 +4,7 @@ import { EmployeesPage } from "./pages/EmployeesPage";
 import { DetailsPage } from "./pages/DetailsPage";
 import { AddPage } from "./pages/AddPage";
 import { EditPage } from "./pages/EditPage";
-import { BackButton } from "./components/BackButton";
+import { BackButton } from "./components/ButtonBack";
 import { LanguageSelector } from "./components/LanguageSelector";
 
 const router = createBrowserRouter([
@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <main className="bg-white p-2 min-h-screen relative">
-        <nav className=" p-3 fixed md:static ">
+        <nav className=" p-3 fixed md:static z-50">
           <div className="grid grid-cols-12 ">
             <BackButton />
             <LanguageSelector />

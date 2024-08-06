@@ -16,7 +16,7 @@ export const createEmployee = (newEmployee: Omit<Employee, "id">) => {
   });
 };
 
-export const editEmployee = (employee: Employee) => {
+export const editDataEmployee = (employee: Employee) => {
   //const apiUrl = "http://localhost:3001/employees/" + employee.id;
   const apiUrl = apiURL + employee.id;
 
@@ -44,7 +44,7 @@ export const deleteEmployee = (id: string): Promise<boolean> => {
   });
 };
 
-export const getEmployee = (id: string): Promise<Employee> => {
+export const getDataEmployee = (id: string): Promise<Employee> => {
   const apiUrl = "http://localhost:3001/employees/" + id;
 
   return fetch(apiUrl, { method: "GET" }).then((response) => {
@@ -58,11 +58,25 @@ export const getEmployee = (id: string): Promise<Employee> => {
   });
 };
 
+export const fetchDataEmployees = async (): Promise<Employee[]> => {
+  const apiUrl = apiURL;
+  const response = await fetch(apiUrl, { method: "GET" });
+  if (response.ok) {
+    const data = await response.json();
+    const employees = data as Employee[];
+    return employees.map((employee) => {
+      employee.birthdate = new Date(employee.birthdate);
+      return employee;
+    });
+  } else {
+    throw new Error("Cannot fetch list of employees - fetchDataEmployees()");
+  }
+};
+
 export const getAllEmployees = (): Promise<Employee[]> => {
   //const apiUrl = "http://localhost:3001/employees";
   const apiUrl = apiURL;
   console.log(apiURL);
-  
 
   return fetch(apiUrl, { method: "GET" }).then((response) => {
     if (response.ok) {

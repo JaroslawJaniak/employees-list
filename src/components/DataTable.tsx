@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Employee } from "../models/Employee";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface TableProps {
   data: Employee[];
@@ -13,6 +14,7 @@ export function Table({ data }: TableProps) {
   const [sortDirection, setSortDirection] = useState<"asc" | "desc" | null>(
     null
   );
+  const { t } = useTranslation();
 
   const handleSearchType = (event: React.KeyboardEvent) => {
     const input = event.target as HTMLInputElement;
@@ -176,55 +178,57 @@ export function Table({ data }: TableProps) {
             id="table-search"
             className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
             onKeyUp={handleSearchType}
-            placeholder="Wyszukiwana fraza..."
+            placeholder={t("searchphrase")}
             type="text"
           />
         </div>
       </div>
 
       <div className="relative overflow-x-auto shadow-lg mb-12 sm:mb-8 lg:mb-12">
-        <table className="w-full text-xs text-center text-gray-500 dark:text-gray-400 border-collapse table-fixed">
+        <table className="w-full text-xs text-center text-gray-500 dark:text-gray-400 border-collapse sm:table-fixed">
           <thead className=" text-white bg-neutral-800 dark:bg-gray-700 dark:text-gray-400">
             <tr className="h-12">
               <th
                 className="cursor-pointer "
                 onClick={(event) => handleSort(event, "id")}
               >
-                <div className="flex justify-center">
-                  {" "}
-                  ID {renderSortSVG("id")}
+                <div className="flex justify-center ">
+                  {t("id")}
+                  {renderSortSVG("id")}
                 </div>
               </th>
               <th
                 className="cursor-pointer "
                 onClick={(event) => handleSort(event, "firstname")}
               >
-                <div className="flex justify-center">
-                  Firstname{renderSortSVG("firstname")}
+                <div className="flex justify-center md:uppercase">
+                  {t("firstname")}
+                  {renderSortSVG("firstname")}
                 </div>
               </th>
               <th
                 className="cursor-pointer"
                 onClick={(event) => handleSort(event, "lastname")}
               >
-                <div className="flex justify-center">
-                  Lastname{renderSortSVG("lastname")}
+                <div className="flex justify-center md:uppercase">
+                  {t("lastname")}
+                  {renderSortSVG("lastname")}
                 </div>
               </th>
               <th
                 className="cursor-pointer  "
                 onClick={(event) => handleSort(event, "salary")}
               >
-                <div className="flex justify-center">
-                  Salary {renderSortSVG("salary")}
+                <div className="flex justify-center md:uppercase">
+                  {t("salary")} {renderSortSVG("salary")}
                 </div>
               </th>
               <th
                 className="cursor-pointer "
                 onClick={(event) => handleSort(event, "status")}
               >
-                <div className="flex justify-center">
-                  Status {renderSortSVG("status")}
+                <div className="flex justify-center md:uppercase">
+                  {t("status")} {renderSortSVG("status")}
                 </div>
               </th>
             </tr>
