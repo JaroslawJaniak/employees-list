@@ -37,7 +37,7 @@ function App() {
           </div>
         </nav>
         <div className="mt-12">
-          <RouterProvider router={router} />
+          <RouterProvider router={router} ></RouterProvider>
         </div>
       </main>
     </>

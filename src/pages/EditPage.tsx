@@ -6,6 +6,7 @@ import { Employee, EmployeeStatus } from "../models/Employee";
 import { SelectStatus } from "../components/SelectStatus";
 import { EmployeesContext } from "../context/EmployeesContext";
 import { useTranslation } from "react-i18next";
+import { formatDate } from "../utils/formatDate";
 
 export function EditPage() {
   const context = useContext(EmployeesContext);
@@ -84,23 +85,10 @@ export function EditPage() {
     });
   };
 
-  const formatDate = (date: Date): string => {
-    if (date) {
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      const day =
-        String(date.getDate()).length > 1
-          ? String(date.getDate())
-          : "0" + date.getDate();
-
-      return `${year}-${month}-${day}`;
-    }
-
-    return "";
-  };
+  
 
   return (
-    <form onSubmit={handleSubmit} id="edit-form" className="bgImage">
+    <form onSubmit={handleSubmit} id="edit-form" className="">
       {data ? (
         <section className="lg:mx-6 ">
           <div className="sm:grid sm:grid-cols-3 md:grid-cols-2 grid-cols-3 [&>*]:mb-4">

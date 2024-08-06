@@ -1,12 +1,14 @@
 import React, { createContext, useContext, useState } from "react";
 import { Employee } from "../models/Employee";
+import i18n from "../i18n";
 
 type EmployeesContextType = {
   employees: Employee[] | null;
   setEmployees: (employees: Employee[] | null) => void;
   employee: Employee | null;
   setEmployee: (employee: Employee | null) => void;
-
+  selectedLanguage: string;
+  setSelectedLanguage: (language: string) => void;
   isDialogEditOpen: boolean;
   setIsDialogEditOpen: (status: boolean) => void;
 };
@@ -31,12 +33,15 @@ export const EmployeesProvider: React.FC<{ children: React.ReactNode }> = ({
   const [employee, setEmployee] = useState<Employee | null>(null);
   const [employees, setEmployees] = useState<Employee[] | null>(null);
   const [isDialogEditOpen, setIsDialogEditOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
   const context = {
     employees,
     setEmployees,
     employee,
     setEmployee,
+    selectedLanguage,
+    setSelectedLanguage,
     isDialogEditOpen,
     setIsDialogEditOpen,
   };

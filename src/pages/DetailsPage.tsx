@@ -3,14 +3,13 @@ import { EmployeesContext } from "../context/EmployeesContext";
 import { Employee } from "../models/Employee";
 import { useEffect, useState, useContext } from "react";
 import { getDataEmployee, deleteEmployee } from "../services/API";
-
 import { useTranslation } from "react-i18next";
 import { useTranslateStatus } from "../models/StatusOption";
 import { Loader } from "../components/Loader";
 import DialogConfirm from "../components/DialogConfirm";
 import DialogEdit from "../components/DialogEdit";
-
 import { EditPage } from "./EditPage";
+import { formatDate } from "../utils/formatDate";
 
 export function DetailsPage() {
   const context = useContext(EmployeesContext);
@@ -103,8 +102,8 @@ export function DetailsPage() {
       </DialogEdit>
 
       {data ? (
-        <section className={`mx-6 text-sm`}>
-          <h1 className="pt-4 pb-4 uppercase text-xl">
+        <section className={`mx-6 text-sm details-form`}>
+          <h1 className="pt-4  mx-7 sm:mx-14 uppercase text-xl">
             {t("details_page_title")}:
           </h1>
           <hr className="my-5" />
@@ -163,11 +162,22 @@ export function DetailsPage() {
                 id="birthdate"
                 value={
                   context?.employee?.birthdate
+                    ? formatDate(context?.employee?.birthdate)
+                    : formatDate(data?.birthdate)
+                }
+                readOnly
+              />
+              {/* <input
+                className="block pt-1 pb-1 ps-10  text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                type="text"
+                id="birthdate"
+                value={
+                  context?.employee?.birthdate
                     ? context?.employee?.birthdate.toDateString()
                     : data?.birthdate?.toDateString()
                 }
                 readOnly
-              />
+              /> */}
             </div>
             <div className="row mb-3">
               <div className="col">

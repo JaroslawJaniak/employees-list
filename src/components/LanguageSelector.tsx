@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import i18n from "../i18n";
+import { EmployeesContext } from "../context/EmployeesContext";
 
 export function LanguageSelector() {
+  const context = useContext(EmployeesContext);
+
   const languages = [
     { code: "pl", label: "Polski" },
     { code: "en", label: "English" },
@@ -11,7 +14,7 @@ export function LanguageSelector() {
 
   const onLanguageChange = (event: React.ChangeEvent): void => {
     const select = event.target as HTMLSelectElement;
-    setSelectedLanguage(select.value);
+    context?.setSelectedLanguage(select.value);
     i18n.changeLanguage(select.value);
   };
 
@@ -69,7 +72,7 @@ export function LanguageSelector() {
   return (
     <>
       <div className="col-start-13 sm:col-start-13 flex">
-        {selectedLanguage === "pl" ? flagPLSvg : flagENGSvg}
+        {context?.selectedLanguage === "pl" ? flagPLSvg : flagENGSvg}
         {}
         <select
           onChange={onLanguageChange}

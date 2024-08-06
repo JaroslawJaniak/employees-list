@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Employee } from "../models/Employee";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { EmployeesContext } from "../context/EmployeesContext";
 
 interface TableProps {
   data: Employee[];
 }
 
 export function Table({ data }: TableProps) {
+  const context = useContext(EmployeesContext);
   const navigate = useNavigate();
   const [displayData, setDisplayData] = useState<Employee[]>(data);
   const [sortKey, setSortKey] = useState<null | keyof Employee>(null);
@@ -69,7 +71,7 @@ export function Table({ data }: TableProps) {
     selectedEmployee: Employee
   ): void => {
     event.preventDefault();
-
+    context?.setEmployee(selectedEmployee);
     navigate("/details/" + selectedEmployee.id, { state: selectedEmployee });
   };
 
@@ -185,7 +187,7 @@ export function Table({ data }: TableProps) {
       </div>
 
       <div className="relative overflow-x-auto shadow-lg mb-12 sm:mb-8 lg:mb-12">
-        <table className="w-full text-xs text-center text-gray-500 dark:text-gray-400 border-collapse sm:table-fixed lg:text-lg">
+        <table className="w-full text-xs text-center text-gray-500 dark:text-gray-400 border-collapse sm:table-fixed lg:text-base">
           <thead className=" text-white bg-neutral-800 dark:bg-gray-700 dark:text-gray-400">
             <tr className="h-12">
               <th

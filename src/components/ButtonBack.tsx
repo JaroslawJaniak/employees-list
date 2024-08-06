@@ -1,9 +1,10 @@
 export function BackButton() {
   const onClick = (event: React.MouseEvent): void => {
     event.preventDefault();
-    //window.history.back();
-    window.location.href = window.location.origin;
-    
+
+    if (window.location.href !== window.location.origin) {
+      window.history.back();
+    }
   };
 
   return (

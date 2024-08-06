@@ -5,7 +5,7 @@
       "firstname": "Amari Amra",
       "lastname": "Cruickshank Retulla",
       "phonenumber": "1-745-794-8147 x81087",
-      "birthdate": "1970-01-20T22:34:49.046Z",
+      "birthdate": "1970-01-02T00:00:00.000Z",
       "salary": 8,
       "status": "HIRED",
       "address": "9136 Noemy Forks",
@@ -14,10 +14,10 @@
     },
     {
       "id": "2",
-      "firstname": "Ross",
+      "firstname": "Ross Abdaf",
       "lastname": "Kuphal",
       "phonenumber": "353.745.6187 x121",
-      "birthdate": "1970-01-20T22:34:48.986Z",
+      "birthdate": "1973-10-24T00:00:00.000Z",
       "salary": 24,
       "status": "FIRED",
       "address": "7810 Yessenia Station",
@@ -25,16 +25,16 @@
       "zipcode": "99863"
     },
     {
+      "id": "3",
       "firstname": "Alycia",
       "lastname": "Fritsch",
-      "birthdate": 1722888926,
+      "phonenumber": "(719) 810-2530 x1957",
+      "birthdate": "1970-01-20T22:34:48.926Z",
       "salary": 88,
       "status": "HIRED",
-      "phonenumber": "(719) 810-2530 x1957",
       "address": "39369 Kole Crossing",
       "city": "West Hannahhaven",
-      "zipcode": "00017-0847",
-      "id": "3"
+      "zipcode": "00017-0847"
     },
     {
       "firstname": "Beaulah",
@@ -85,16 +85,16 @@
       "id": "8"
     },
     {
+      "id": "9",
       "firstname": "Otis",
       "lastname": "Rogahn",
-      "birthdate": 1722888566,
+      "phonenumber": "1-395-632-3791 x6513",
+      "birthdate": "1970-01-20T22:34:48.566Z",
       "salary": 65,
       "status": "HIRED",
-      "phonenumber": "1-395-632-3791 x6513",
       "address": "87980 McDermott Locks",
       "city": "Framingham",
-      "zipcode": "71634",
-      "id": "9"
+      "zipcode": "71634"
     },
     {
       "firstname": "Albin",
@@ -253,16 +253,16 @@
       "id": "22"
     },
     {
-      "firstname": "Daisha",
-      "lastname": "Stoltenberg",
-      "birthdate": 1722887726,
+      "id": "23",
+      "firstname": "Daisha Dalma",
+      "lastname": "Stoltenberg Kenig",
+      "phonenumber": "1-838-437-4525 x9559",
+      "birthdate": "1969-12-30T00:00:00.000Z",
       "salary": 77,
       "status": "HIRED",
-      "phonenumber": "1-838-437-4525 x9559",
       "address": "866 Melvin Unions",
       "city": "West Jasonboro",
-      "zipcode": "08156",
-      "id": "23"
+      "zipcode": "08156"
     },
     {
       "firstname": "Alysson",
@@ -839,18 +839,6 @@
       "address": "Złota",
       "city": "Piotrków Trybunalski",
       "zipcode": "97-300"
-    },
-    {
-      "id": "1b86",
-      "firstname": "ZZZ",
-      "lastname": "ZZZ",
-      "birthdate": "2024-08-15",
-      "phonenumber": "514651411",
-      "address": "ZZZ",
-      "city": "Piotrków Trybunalski",
-      "postalcode": "97-300",
-      "status": "ON_LEAVE",
-      "salary": "1266"
     },
     {
       "id": "d745",

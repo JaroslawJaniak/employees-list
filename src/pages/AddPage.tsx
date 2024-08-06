@@ -31,7 +31,7 @@ export function AddPage() {
 
   return (
     <form onSubmit={handleSubmit} className="mx-6 text-sm">
-      <h1 className="pt-4 pb-4 uppercase text-xl">
+      <h1 className="pt-4  mx-7 sm:mx-14 uppercase text-xl">
         {t("add_epmloyee_title")}:
       </h1>
       <hr className="my-5" />

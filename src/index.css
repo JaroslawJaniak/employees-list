@@ -9,10 +9,10 @@ body {
 .body {
   font-family: "Courier New", monospace;
   background-repeat: repeat;
-  background-position: right;
-  background-size: cover;
+  background-position: center;
+  background-size: contain;
 
-  background-image: url("/src/assets/image-from-rawpixel-id-4021691-jpeg.jpg");
+  background-image: url("/src/assets/asset0.jpg");
 }
 
 .cursor-pointer {
@@ -26,6 +26,10 @@ body {
 .btn-disabled {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity)) /* #374151 */;
+}
+
+.details-form  input{
+cursor:default;
 }
 
 .lds-spinner,
