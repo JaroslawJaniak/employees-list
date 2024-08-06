@@ -77,14 +77,14 @@ export function DetailsPage() {
       >
         <div className="grid grid-cols-4 ">
           <button
-            className="  col-start-1 text-white bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-3 py-1.5  mb-2 w-24 "
+            className="  col-start-1 text-white bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-3 py-1.5  mb-2 w-24 "
             type="submit"
             onClick={handleConfirmDeleteDialog}
           >
             {t("yes")}
           </button>
           <button
-            className="col-end-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-3 py-1.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            className="col-end-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-3 py-1.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
             type="submit"
             onClick={closeDialog}
           >
@@ -103,13 +103,13 @@ export function DetailsPage() {
 
       {data ? (
         <section className={`mx-6 text-sm details-form`}>
-          <h1 className="pt-4  mx-7 sm:mx-14 uppercase text-xl">
+          <h1 className="pt-4  mx-7 sm:mx-14 uppercase text-xl font-fantasy">
             {t("details_page_title")}:
           </h1>
           <hr className="my-5" />
           <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
             <div className="">
-              <label htmlFor="firstname" className="form-label">
+              <label htmlFor="firstname" className="form-label  font-fantasy">
                 ID
               </label>
               <input
@@ -120,7 +120,7 @@ export function DetailsPage() {
               />
             </div>
             <div className="col ">
-              <label htmlFor="firstname" className="form-label">
+              <label htmlFor="firstname" className="form-label font-fantasy">
                 {t("firstname")}
               </label>
               <input
@@ -135,7 +135,7 @@ export function DetailsPage() {
               />
             </div>
             <div className="col">
-              <label htmlFor="lastname" className="form-label">
+              <label htmlFor="lastname" className="form-label font-fantasy">
                 {t("lastname")}
               </label>
               <input
@@ -153,7 +153,7 @@ export function DetailsPage() {
 
           <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
             <div className="col">
-              <label htmlFor="birthdate" className="form-label">
+              <label htmlFor="birthdate" className="form-label font-fantasy">
                 {t("birthdate")}
               </label>
               <input
@@ -181,7 +181,10 @@ export function DetailsPage() {
             </div>
             <div className="row mb-3">
               <div className="col">
-                <label htmlFor="phonenumber" className="form-label">
+                <label
+                  htmlFor="phonenumber"
+                  className="form-label font-fantasy"
+                >
                   {t("phonenumber")}
                 </label>
                 <input
@@ -200,7 +203,7 @@ export function DetailsPage() {
           <hr className="my-5" />
           <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
             <div className="col">
-              <label htmlFor="address" className="form-label">
+              <label htmlFor="address" className="form-label font-fantasy">
                 {t("address")}
               </label>
               <input
@@ -215,7 +218,7 @@ export function DetailsPage() {
               />
             </div>
             <div className="col">
-              <label htmlFor="city" className="form-label">
+              <label htmlFor="city" className="form-label font-fantasy">
                 {t("city")}
               </label>
               <input
@@ -228,7 +231,7 @@ export function DetailsPage() {
               />
             </div>
             <div className="col">
-              <label htmlFor="postalcode" className="form-label">
+              <label htmlFor="postalcode" className="form-label font-fantasy">
                 {t("postalcode")}
               </label>
               <input
@@ -246,7 +249,7 @@ export function DetailsPage() {
           <hr className="my-5" />
           <div className="lg:grid grid-cols-3 w-100 [&>*]:mb-4">
             <div className="col">
-              <label htmlFor="status" className="form-label">
+              <label htmlFor="status" className="form-label font-fantasy">
                 {t("status")}
               </label>
               <input
@@ -262,7 +265,7 @@ export function DetailsPage() {
               />
             </div>
             <div className="col">
-              <label htmlFor="salary" className="form-label">
+              <label htmlFor="salary" className="form-label font-fantasy">
                 {t("salary")}
               </label>
               <input
@@ -280,14 +283,14 @@ export function DetailsPage() {
           <hr className="my-5" />
           <div className="grid grid-cols-6 gap-4">
             <button
-              className="col-start-3 sm:col-start-5 md:col-start-6 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              className="col-start-3 sm:col-start-5 md:col-start-6 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
               type="submit"
               onClick={handleEditClick}
             >
               {t("edit")}
             </button>
             <button
-              className="col-start-5 sm:col-start-6 md:col-start-7 text-white bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 "
+              className="col-start-5 sm:col-start-6 md:col-start-7 text-white bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-5 py-2.5  mb-2 w-24 "
               type="submit"
               onClick={handleDeleteClick}
             >

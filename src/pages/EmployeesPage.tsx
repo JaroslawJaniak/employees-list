@@ -38,13 +38,12 @@ export function EmployeesPage() {
           <div className="grid grid-cols-12 mt-20">
             <button
               onClick={handleAddClick}
-              className="col-start-7 sm:col-start-10  sm:mb-12  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-48 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              className="col-start-7 sm:col-start-10  sm:mb-12  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-5 py-2.5  mb-2 w-48 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
             >
-              {t('add')}
+              {t("add")}
             </button>
           </div>
           <Table data={data}></Table>
-          
         </>
       ) : (
         <Loader />

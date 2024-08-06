@@ -6,6 +6,10 @@ body {
   font-family: "Courier New", monospace;
 }
 
+.font-fantasy {
+  font-family: 'Impact',fantasy;
+}
+
 .body {
   font-family: "Courier New", monospace;
   background-repeat: repeat;

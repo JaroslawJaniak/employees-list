@@ -187,9 +187,9 @@ export function Table({ data }: TableProps) {
       </div>
 
       <div className="relative overflow-x-auto shadow-lg mb-12 sm:mb-8 lg:mb-12">
-        <table className="w-full text-xs text-center text-gray-500 dark:text-gray-400 border-collapse sm:table-fixed lg:text-base">
+        <table className="w-full text-xs text-center  dark:text-gray-400 border-collapse sm:table-fixed lg:text-base">
           <thead className=" text-white bg-neutral-800 dark:bg-gray-700 dark:text-gray-400">
-            <tr className="h-12">
+            <tr className="h-12  ">
               <th
                 className="cursor-pointer "
                 onClick={(event) => handleSort(event, "id")}

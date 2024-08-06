@@ -93,7 +93,7 @@ export function EditPage() {
         <section className="lg:mx-6 ">
           <div className="sm:grid sm:grid-cols-3 md:grid-cols-2 grid-cols-3 [&>*]:mb-4">
             <div className="">
-              <label htmlFor="firstname" className="form-label">
+              <label htmlFor="firstname" className="form-label font-fantasy">
                 {t("firstname")}
               </label>
               <input
@@ -109,7 +109,7 @@ export function EditPage() {
               />
             </div>
             <div className="">
-              <label htmlFor="lastname" className="form-label">
+              <label htmlFor="lastname" className="form-label font-fantasy">
                 {t("lastname")}
               </label>
               <input
@@ -126,7 +126,7 @@ export function EditPage() {
             </div>
 
             <div className="">
-              <label htmlFor="birthdate" className="form-label">
+              <label htmlFor="birthdate" className="form-label font-fantasy">
                 {t("birthdate")}
               </label>
               <input
@@ -142,7 +142,7 @@ export function EditPage() {
               />
             </div>
             <div className="">
-              <label htmlFor="phonenumber" className="form-label">
+              <label htmlFor="phonenumber" className="form-label font-fantasy">
                 {t("phonenumber")}
               </label>
               <input
@@ -159,7 +159,7 @@ export function EditPage() {
             </div>
 
             <div className="">
-              <label htmlFor="address" className="form-label">
+              <label htmlFor="address" className="form-label font-fantasy">
                 {t("address")}
               </label>
               <input
@@ -175,7 +175,7 @@ export function EditPage() {
               />
             </div>
             <div className="">
-              <label htmlFor="city" className="form-label">
+              <label htmlFor="city" className="form-label font-fantasy">
                 {t("city")}
               </label>
               <input
@@ -191,7 +191,7 @@ export function EditPage() {
               />
             </div>
             <div className="">
-              <label htmlFor="postalcode" className="form-label">
+              <label htmlFor="postalcode" className="form-label font-fantasy">
                 {t("postalcode")}
               </label>
               <input
@@ -208,7 +208,7 @@ export function EditPage() {
             </div>
 
             <div className="">
-              <label htmlFor="salary" className="form-label">
+              <label htmlFor="salary" className="form-label font-fantasy">
                 {t("salary")}
               </label>
               <input
@@ -221,7 +221,7 @@ export function EditPage() {
               />
             </div>
             <div className="">
-              <label htmlFor="status" className="form-label">
+              <label htmlFor="status" className="form-label font-fantasy">
                 {t("status")}
               </label>
               <SelectStatus
@@ -235,7 +235,7 @@ export function EditPage() {
           <div className="grid grid-cols-6 gap-4">
             <button
               className={
-                " col-start-5 lg:col-start-6 text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-1 lg:py-2.5 mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" +
+                " col-start-5 lg:col-start-6 text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-5 py-1 lg:py-2.5 mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" +
                 (isFormValid ? "" : "btn-disabled")
               }
               type="submit"

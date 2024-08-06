@@ -31,13 +31,13 @@ export function AddPage() {
 
   return (
     <form onSubmit={handleSubmit} className="mx-6 text-sm">
-      <h1 className="pt-4  mx-7 sm:mx-14 uppercase text-xl">
+      <h1 className="pt-4  mx-7 sm:mx-14 uppercase text-xl font-fantasy">
         {t("add_epmloyee_title")}:
       </h1>
       <hr className="my-5" />
       <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
         <div className="col ">
-          <label htmlFor="firstname" className="form-label">
+          <label htmlFor="firstname" className="form-label font-fantasy">
             {t("firstname")}
           </label>
           <input
@@ -48,7 +48,7 @@ export function AddPage() {
           />
         </div>
         <div className="col">
-          <label htmlFor="lastname" className="form-label">
+          <label htmlFor="lastname" className="form-label font-fantasy">
             {t("lastname")}
           </label>
           <input
@@ -62,7 +62,7 @@ export function AddPage() {
 
       <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
         <div className="col">
-          <label htmlFor="birthdate" className="form-label">
+          <label htmlFor="birthdate" className="form-label font-fantasy">
             {t("birthdate")}
           </label>
           <input
@@ -74,7 +74,7 @@ export function AddPage() {
         </div>
         <div className="row mb-3">
           <div className="col">
-            <label htmlFor="phonenumber" className="form-label">
+            <label htmlFor="phonenumber" className="form-label font-fantasy">
               {t("phonenumber")}
             </label>
             <input
@@ -89,7 +89,7 @@ export function AddPage() {
       <hr className="my-5" />
       <div className="lg:grid grid-cols-3 mb-3 [&>*]:mb-4">
         <div className="col">
-          <label htmlFor="address" className="form-label">
+          <label htmlFor="address" className="form-label font-fantasy">
             {t("address")}
           </label>
           <input
@@ -100,7 +100,7 @@ export function AddPage() {
           />
         </div>
         <div className="col">
-          <label htmlFor="city" className="form-label">
+          <label htmlFor="city" className="form-label font-fantasy">
             {t("city")}
           </label>
           <input
@@ -111,7 +111,7 @@ export function AddPage() {
           />
         </div>
         <div className="col">
-          <label htmlFor="postalcode" className="form-label">
+          <label htmlFor="postalcode" className="form-label font-fantasy">
             {t("postalcode")}
           </label>
           <input
@@ -125,13 +125,13 @@ export function AddPage() {
       <hr className="my-5" />
       <div className="lg:grid grid-cols-3 w-100 [&>*]:mb-4">
         <div className="col">
-          <label htmlFor="status" className="form-label">
+          <label htmlFor="status" className="form-label font-fantasy">
             {t("status")}
           </label>
           <SelectStatus name="status"></SelectStatus>
         </div>
         <div className="col">
-          <label htmlFor="salary" className="form-label">
+          <label htmlFor="salary" className="form-label font-fantasy">
             {t("salary")}
           </label>
           <input
@@ -145,7 +145,7 @@ export function AddPage() {
       <hr className="my-5" />
       <div className="grid grid-cols-6 gap-4">
         <button
-          className="col-start-5 md:col-start-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+          className="col-start-5 md:col-start-7 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  font-fantasy rounded text-base px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           type="submit"
         >
           {t("save")}

@@ -4,8 +4,7 @@ import { EmployeesPage } from "./pages/EmployeesPage";
 import { DetailsPage } from "./pages/DetailsPage";
 import { AddPage } from "./pages/AddPage";
 import { EditPage } from "./pages/EditPage";
-import { BackButton } from "./components/ButtonBack";
-import { LanguageSelector } from "./components/LanguageSelector";
+
 import { Main } from "./components/Main";
 
 const router = createBrowserRouter([
