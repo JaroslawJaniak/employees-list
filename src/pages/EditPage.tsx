@@ -81,7 +81,7 @@ export function EditPage() {
       context?.setIsDialogEditOpen(false);
       context?.setEmployee(employee);
       setData(employee);
-      navigate("/details/" + employee.id, { state: employee });
+      //navigate("/details/" + employee.id, { state: employee });
     });
   };
 

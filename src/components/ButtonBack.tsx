@@ -1,10 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 export function BackButton() {
+  const navigate = useNavigate();
+
   const onClick = (event: React.MouseEvent): void => {
     event.preventDefault();
-
-    if (window.location.href !== window.location.origin) {
-      window.history.back();
-    }
+    navigate("/");
+    
+    // if (window.location.href !== window.location.origin) {
+    //   window.history.back();
+    // }
   };
 
   return (

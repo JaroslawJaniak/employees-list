@@ -6,40 +6,47 @@ import { AddPage } from "./pages/AddPage";
 import { EditPage } from "./pages/EditPage";
 import { BackButton } from "./components/ButtonBack";
 import { LanguageSelector } from "./components/LanguageSelector";
+import { Main } from "./components/Main";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <EmployeesPage />,
+    element: (
+      <Main>
+        <EmployeesPage />
+      </Main>
+    ),
   },
   {
     path: "/details/:id",
-    element: <DetailsPage />,
+    element: (
+      <Main>
+        <DetailsPage />
+      </Main>
+    ),
   },
   {
     path: "/add",
-    element: <AddPage />,
+    element: (
+      <Main>
+        <AddPage />
+      </Main>
+    ),
   },
   {
     path: "/edit/:id",
-    element: <EditPage />,
+    element: (
+      <Main>
+        <EditPage />
+      </Main>
+    ),
   },
 ]);
 
 function App() {
   return (
     <>
-      <main className="bg-white p-2 min-h-screen relative">
-        <nav className=" p-3 fixed md:static z-50">
-          <div className="grid grid-cols-12 ">
-            <BackButton />
-            <LanguageSelector />
-          </div>
-        </nav>
-        <div className="mt-12">
-          <RouterProvider router={router} ></RouterProvider>
-        </div>
-      </main>
+      <RouterProvider router={router}></RouterProvider>
     </>
   );
 }
