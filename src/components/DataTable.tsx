@@ -188,7 +188,7 @@ export function Table({ data }: TableProps) {
 
       <div className="relative overflow-x-auto shadow-lg mb-12 sm:mb-8 lg:mb-12">
         <table className="w-full text-xs text-center  dark:text-gray-400 border-collapse sm:table-fixed lg:text-base">
-          <thead className=" text-white bg-neutral-800 dark:bg-gray-700 dark:text-gray-400">
+          <thead className=" text-white bg-gray-900 dark:bg-gray-700 dark:text-gray-400">
             <tr className="h-12  ">
               <th
                 className="cursor-pointer "
