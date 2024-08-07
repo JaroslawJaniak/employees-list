@@ -1,18 +1,6 @@
 {
   "employees": [
     {
-      "id": "1",
-      "firstname": "Amari Amra",
-      "lastname": "Cruickshank Retulla",
-      "phonenumber": "1-745-794-8147 x81087",
-      "birthdate": "1970-01-02T00:00:00.000Z",
-      "salary": 8,
-      "status": "HIRED",
-      "address": "9136 Noemy Forks",
-      "city": "East Adelia",
-      "zipcode": "47438-9148"
-    },
-    {
       "id": "5",
       "firstname": "Beaulah",
       "lastname": "Carroll",
@@ -981,6 +969,42 @@
       "address": "Atrumm 234",
       "city": "Qwerty",
       "postalcode": "12-34-5",
+      "status": "ON_LEAVE",
+      "salary": "12000"
+    },
+    {
+      "id": "3621",
+      "firstname": "Wermon",
+      "lastname": "Wright",
+      "birthdate": "2024-08-29",
+      "phonenumber": "123-456-098",
+      "address": "Baket Str 12",
+      "city": "Louis Venue",
+      "postalcode": "12-56",
+      "status": "ON_LEAVE",
+      "salary": "12000"
+    },
+    {
+      "id": "ef2c",
+      "firstname": "Wermon",
+      "lastname": "Wright",
+      "birthdate": "2024-08-29",
+      "phonenumber": "123-456-098",
+      "address": "Baket Str 12",
+      "city": "Louis Venue",
+      "postalcode": "12-56",
+      "status": "ON_LEAVE",
+      "salary": "12000"
+    },
+    {
+      "id": "5b4f",
+      "firstname": "Wermon",
+      "lastname": "Wright",
+      "birthdate": "2024-08-29",
+      "phonenumber": "123-456-098",
+      "address": "Baket Str 12",
+      "city": "Louis Venue",
+      "postalcode": "12-56",
       "status": "ON_LEAVE",
       "salary": "12000"
     }

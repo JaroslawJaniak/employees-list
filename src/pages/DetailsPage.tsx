@@ -18,7 +18,7 @@ export function DetailsPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const notify = () => toast("Dlete process complete...");
+  const notify = () => toast(t("notify_DELETE_success"), { type: "success" });
 
   const { translateStatus } = useTranslateStatus();
   const { t } = useTranslation();
@@ -60,12 +60,16 @@ export function DetailsPage() {
   const handleConfirmDeleteDialog = (event: React.MouseEvent): void => {
     event.preventDefault();
 
-    deleteEmployee(id as string).then((response) => {
-      if (response) {
-        notify();
-        navigate("/");
-      }
-    });
+    deleteEmployee(id as string)
+      .then((response) => {
+        if (response) {
+          notify();
+          navigate("/");
+        }
+      })
+      .catch(() => {
+        toast(t("notify_DELETE_error"), { type: "error" });
+      });
   };
 
   const handleDeleteClick = (event: React.MouseEvent): void => {

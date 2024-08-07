@@ -15,7 +15,7 @@ export function EditPage() {
   const location = useLocation();
   const { id } = useParams();
   const { t } = useTranslation();
-  const notify = () => toast("Edit complete");
+  const notify = () => toast(t("notify_EDIT_success"), { type: "success" });
 
   const [data, setData] = useState<Employee>(location.state);
   const [statusOptions] = useState<StatusOption[]>(STATUS_OPTIONS);
@@ -79,13 +79,17 @@ export function EditPage() {
       zipcode,
     };
 
-    editDataEmployee(employee).then(() => {
-      context?.setIsDialogEditOpen(false);
-      context?.setEmployee(employee);
-      setData(employee);
-      notify();
-      //navigate("/details/" + employee.id, { state: employee });
-    });
+    editDataEmployee(employee)
+      .then(() => {
+        context?.setIsDialogEditOpen(false);
+        context?.setEmployee(employee);
+        setData(employee);
+        notify();
+        //navigate("/details/" + employee.id, { state: employee });
+      })
+      .catch(() => {
+        toast(t("notify_EDIT_error"), { type: "error" });
+      });
   };
 
   return (

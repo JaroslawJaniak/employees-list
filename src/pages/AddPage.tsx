@@ -11,20 +11,18 @@ export function AddPage() {
   const navigate = useNavigate();
   const [statusOptions] = useState<StatusOption[]>(STATUS_OPTIONS);
   const { t } = useTranslation();
-  const notify = () => {
+  const notifySuccess = () => {
     //toast("Default Notification!");
-    toast.success("Success Notification!", {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-    toast.error("Error Notification!", {
-      position: toast.POSITION.BOTTOM_RIGHT,
-    });
-    toast.info("Info Notification!", {
-      position: toast.POSITION.BOTTOM_CENTER,
-    });
-    toast.warn("Warning Notification!", {
-      position: toast.POSITION.BOTTOM_LEFT,
-    });
+    toast.success(t("notify_ADD_success"));
+    // toast.error("Error Notification!", {
+    //   position: toast.POSITION.BOTTOM_RIGHT,
+    // });
+    // toast.info("Info Notification!", {
+    //   position: toast.POSITION.BOTTOM_CENTER,
+    // });
+    // toast.warn("Warning Notification!", {
+    //   position: toast.POSITION.BOTTOM_LEFT,
+    // });
   };
 
 
@@ -42,10 +40,14 @@ export function AddPage() {
       data[key] = value;
     });
 
-    addEmployee(data).then(() => {
-     notify();
-      navigate("/");
-    });
+    addEmployee(data)
+      .then(() => {
+        notifySuccess();
+        navigate("/");
+      })
+      .catch(() => {
+        toast(t("notify_ADD_error"), { type: "error" });
+      });
   };
 
   return (
