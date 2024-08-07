@@ -11,10 +11,14 @@ import DialogEdit from "../components/DialogEdit";
 import { EditPage } from "./EditPage";
 import { formatDate } from "../utils/formatDate";
 
+import { toast } from "react-toastify";
+
 export function DetailsPage() {
   const context = useContext(EmployeesContext);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const notify = () => toast("Dlete process complete...");
 
   const { translateStatus } = useTranslateStatus();
   const { t } = useTranslation();
@@ -58,6 +62,7 @@ export function DetailsPage() {
 
     deleteEmployee(id as string).then((response) => {
       if (response) {
+        notify();
         navigate("/");
       }
     });

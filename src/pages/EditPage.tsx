@@ -7,6 +7,7 @@ import { SelectStatus } from "../components/SelectStatus";
 import { EmployeesContext } from "../context/EmployeesContext";
 import { useTranslation } from "react-i18next";
 import { formatDate } from "../utils/formatDate";
+import { toast } from "react-toastify";
 
 export function EditPage() {
   const context = useContext(EmployeesContext);
@@ -14,6 +15,7 @@ export function EditPage() {
   const location = useLocation();
   const { id } = useParams();
   const { t } = useTranslation();
+  const notify = () => toast("Edit complete");
 
   const [data, setData] = useState<Employee>(location.state);
   const [statusOptions] = useState<StatusOption[]>(STATUS_OPTIONS);
@@ -81,11 +83,10 @@ export function EditPage() {
       context?.setIsDialogEditOpen(false);
       context?.setEmployee(employee);
       setData(employee);
+      notify();
       //navigate("/details/" + employee.id, { state: employee });
     });
   };
-
-  
 
   return (
     <form onSubmit={handleSubmit} id="edit-form" className="">

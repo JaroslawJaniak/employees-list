@@ -1,14 +1,32 @@
 import { useNavigate } from "react-router-dom";
-import { createEmployee } from "../services/API";
+import { addEmployee } from "../services/API";
 import { STATUS_OPTIONS, StatusOption } from "../models/StatusOption";
 import { useState } from "react";
 import { SelectStatus } from "../components/SelectStatus";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
+
 
 export function AddPage() {
   const navigate = useNavigate();
   const [statusOptions] = useState<StatusOption[]>(STATUS_OPTIONS);
   const { t } = useTranslation();
+  const notify = () => {
+    //toast("Default Notification!");
+    toast.success("Success Notification!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    toast.error("Error Notification!", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
+    toast.info("Info Notification!", {
+      position: toast.POSITION.BOTTOM_CENTER,
+    });
+    toast.warn("Warning Notification!", {
+      position: toast.POSITION.BOTTOM_LEFT,
+    });
+  };
+
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -24,7 +42,8 @@ export function AddPage() {
       data[key] = value;
     });
 
-    createEmployee(data).then(() => {
+    addEmployee(data).then(() => {
+     notify();
       navigate("/");
     });
   };

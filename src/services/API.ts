@@ -1,7 +1,8 @@
 import { Employee } from "../models/Employee";
 import { apiURL } from "./apiURL";
 
-export const createEmployee = (newEmployee: Omit<Employee, "id">) => {
+
+export const addEmployee = (newEmployee: Omit<Employee, "id">) => {
   const apiUrl = "http://localhost:3001/employees";
 
   return fetch(apiUrl, {
@@ -9,6 +10,7 @@ export const createEmployee = (newEmployee: Omit<Employee, "id">) => {
     body: JSON.stringify(newEmployee),
   }).then((response) => {
     if (response.ok) {
+       
       return response.json();
     } else {
       throw new Error("Cannot add new employee");
