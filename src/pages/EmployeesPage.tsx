@@ -43,7 +43,7 @@ export function EmployeesPage() {
               {t("add")}
             </button>
           </div>
-          <Table data={data}></Table>
+          <Table data={data} itemsPerPage={10}></Table>
         </>
       ) : (
         <Loader />

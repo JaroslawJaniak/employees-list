@@ -277,18 +277,6 @@
       "id": "28"
     },
     {
-      "firstname": "Rollin",
-      "lastname": "Bayer",
-      "birthdate": 1722887366,
-      "salary": 9,
-      "status": "HIRED",
-      "phonenumber": "(209) 956-0507 x4169",
-      "address": "3792 Hickle Hill",
-      "city": "South Willis",
-      "zipcode": "05153-6298",
-      "id": "29"
-    },
-    {
       "firstname": "Jermaine",
       "lastname": "Nienow",
       "birthdate": 1722887306,
@@ -949,18 +937,6 @@
       "salary": "12000"
     },
     {
-      "id": "279b",
-      "firstname": "Amari Amra",
-      "lastname": "Adamowicz Kryński",
-      "birthdate": "2024-08-22",
-      "phonenumber": "455789655",
-      "address": "Atrumm 234",
-      "city": "Qwerty",
-      "postalcode": "12-34-5",
-      "status": "ON_LEAVE",
-      "salary": "12000"
-    },
-    {
       "id": "7028",
       "firstname": "Amari Amra",
       "lastname": "Adamowicz Kryński",
@@ -1007,6 +983,30 @@
       "postalcode": "12-56",
       "status": "ON_LEAVE",
       "salary": "12000"
+    },
+    {
+      "id": "a84b",
+      "firstname": "Zack",
+      "lastname": "Zunn",
+      "birthdate": "2024-08-06",
+      "phonenumber": "2345677",
+      "address": "Atrumm 234",
+      "city": "Qwerty",
+      "postalcode": "3456",
+      "status": "HIRED",
+      "salary": "5000"
+    },
+    {
+      "id": "40c8",
+      "firstname": "ZZZ",
+      "lastname": "ZZZ",
+      "birthdate": "2024-08-16",
+      "phonenumber": "514651411",
+      "address": "Złota",
+      "city": "Piotrków Trybunalski",
+      "postalcode": "97-300",
+      "status": "FIRED",
+      "salary": "5000"
     }
   ]
 }

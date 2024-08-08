@@ -39,6 +39,8 @@ const resources = {
       notify_DELETE_error: "Data delete complete error!",
       notify_ADD_error: "Data add complete error!",
       notify_EDIT_error: "Data edit complete error!",
+      page: "Page",
+      of: "of",
     },
   },
   pl: {
@@ -78,6 +80,8 @@ const resources = {
       notify_DELETE_error: "Usunięcie danych zakończone błędem!",
       notify_ADD_error: "Dodanie danych zakończone błędem!",
       notify_EDIT_error: "Edycja danych zakończona błędem!",
+      page: "Strona",
+      of: "z",
     },
   },
 };

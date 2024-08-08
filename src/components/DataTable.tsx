@@ -1,14 +1,16 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Employee } from "../models/Employee";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { EmployeesContext } from "../context/EmployeesContext";
+import { NavButton } from "./NavButton";
 
 interface TableProps {
   data: Employee[];
+  itemsPerPage: number;
 }
 
-export function Table({ data }: TableProps) {
+export function Table({ data, itemsPerPage }: TableProps) {
   const context = useContext(EmployeesContext);
   const navigate = useNavigate();
   const [displayData, setDisplayData] = useState<Employee[]>(data);
@@ -16,7 +18,35 @@ export function Table({ data }: TableProps) {
   const [sortDirection, setSortDirection] = useState<"asc" | "desc" | null>(
     null
   );
+
+  //-------------------------------------------------------------------------------
+  //const [currentPage, setCurrentPage] = useState(1);
+
+  const pageCount = Math.ceil(data.length / itemsPerPage);
+
+  const handlePageClick = (page: number) => {
+    if (page < 1) page = 1;
+    if (page > pageCount) page = pageCount;
+    context?.setCurrentPage(page);
+    console.log("current page: " + context?.currentPage);
+    setDisplayData(data.slice((page - 1) * itemsPerPage, page * itemsPerPage));
+  };
+  //-------------------------------------------------------------------------------
   const { t } = useTranslation();
+
+  useEffect(() => {
+    console.log("current page1: " + context?.currentPage);
+
+    setDisplayData(
+      data.slice(
+        (context?.currentPage - 1) * itemsPerPage,
+        context?.currentPage * itemsPerPage
+      )
+    );
+    return () => {
+      console.log("current page2: " + context?.currentPage);
+    };
+  }, [itemsPerPage]);
 
   const handleSearchType = (event: React.KeyboardEvent) => {
     const input = event.target as HTMLInputElement;
@@ -251,6 +281,53 @@ export function Table({ data }: TableProps) {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="mx-auto fixed w-full bottom-8 sm:bottom-0 md:bottom-8 right-0 ">
+        <div className="mx-auto w-11/12 lg:w-1/4 flex justify-between bg-white">
+          <button
+            onClick={() => handlePageClick(context?.currentPage - 1)}
+            disabled={context?.currentPage === 1}
+            className="  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-8   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+          >
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="inline-block"
+            >
+              <path
+                d="M16.2426 6.34317L14.8284 4.92896L7.75739 12L14.8285 19.0711L16.2427 17.6569L10.5858 12L16.2426 6.34317Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <span>
+            {t("page")} {""}
+            {context?.currentPage} {t("of")} {pageCount}{" "}
+          </span>
+          <button
+            onClick={() => handlePageClick(context?.currentPage + 1)}
+            disabled={context?.currentPage === pageCount}
+            className="  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-8   py-1.0 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+          >
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="inline-block"
+            >
+              <path
+                d="M10.5858 6.34317L12 4.92896L19.0711 12L12 19.0711L10.5858 17.6569L16.2427 12L10.5858 6.34317Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          
+        </div>
       </div>
     </>
   );

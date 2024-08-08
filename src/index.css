@@ -23,6 +23,10 @@ body {
   cursor: pointer;
 }
 
+.flip-horizontal {
+    transform: scaleX(-1);
+}
+
 
 .btn-disabled {
   --tw-bg-opacity: 1;

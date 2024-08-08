@@ -11,6 +11,8 @@ type EmployeesContextType = {
   setSelectedLanguage: (language: string) => void;
   isDialogEditOpen: boolean;
   setIsDialogEditOpen: (status: boolean) => void;
+  currentPage: number | undefined;
+  setCurrentPage: (page: number) => void;
 };
 
 export const EmployeesContext = createContext<EmployeesContextType | undefined>(
@@ -34,6 +36,7 @@ export const EmployeesProvider: React.FC<{ children: React.ReactNode }> = ({
   const [employees, setEmployees] = useState<Employee[] | null>(null);
   const [isDialogEditOpen, setIsDialogEditOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const context = {
     employees,
@@ -44,6 +47,8 @@ export const EmployeesProvider: React.FC<{ children: React.ReactNode }> = ({
     setSelectedLanguage,
     isDialogEditOpen,
     setIsDialogEditOpen,
+    currentPage,
+    setCurrentPage,
   };
 
   return (
