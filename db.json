@@ -998,15 +998,15 @@
     },
     {
       "id": "40c8",
-      "firstname": "ZZZ",
-      "lastname": "ZZZ",
-      "birthdate": "2024-08-16",
+      "firstname": "Andreas",
+      "lastname": "Kusherr",
       "phonenumber": "514651411",
+      "birthdate": "2024-08-16T00:00:00.000Z",
+      "salary": "5000",
+      "status": "FIRED",
       "address": "Złota",
       "city": "Piotrków Trybunalski",
-      "postalcode": "97-300",
-      "status": "FIRED",
-      "salary": "5000"
+      "zipcode": "97-300"
     }
   ]
 }

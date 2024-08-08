@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 body {
   font-family: "Courier New", monospace;
 }
 
 .font-fantasy {
-  font-family: 'Impact',fantasy;
+  font-family: 'Party LET',fantasy;
+  
 }
 
 .body {

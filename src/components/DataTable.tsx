@@ -35,17 +35,13 @@ export function Table({ data, itemsPerPage }: TableProps) {
   const { t } = useTranslation();
 
   useEffect(() => {
-    console.log("current page1: " + context?.currentPage);
-
     setDisplayData(
       data.slice(
         (context?.currentPage - 1) * itemsPerPage,
         context?.currentPage * itemsPerPage
       )
     );
-    return () => {
-      console.log("current page2: " + context?.currentPage);
-    };
+    return () => {};
   }, [itemsPerPage]);
 
   const handleSearchType = (event: React.KeyboardEvent) => {
@@ -276,14 +272,14 @@ export function Table({ data, itemsPerPage }: TableProps) {
                 <td>{item.firstname}</td>
                 <td>{item.lastname}</td>
                 <td>{item.salary}</td>
-                <td>{item.status}</td>
+                <td>{t("status_" + item.status)}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <div className="mx-auto fixed w-full bottom-8 sm:bottom-0 md:bottom-8 right-0 ">
-        <div className="mx-auto w-11/12 lg:w-1/4 flex justify-between bg-white">
+        <div className="mx-auto px-2 w-11/12 md:w-3/4 lg:w-1/4 flex justify-between bg-white">
           <button
             onClick={() => handlePageClick(context?.currentPage - 1)}
             disabled={context?.currentPage === 1}
@@ -326,7 +322,6 @@ export function Table({ data, itemsPerPage }: TableProps) {
               />
             </svg>
           </button>
-          
         </div>
       </div>
     </>
