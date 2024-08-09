@@ -781,18 +781,6 @@
       "zipcode": "97-300"
     },
     {
-      "id": "d745",
-      "firstname": "Astaram",
-      "lastname": "Evenue",
-      "birthdate": "2024-08-23",
-      "phonenumber": "123-567-789",
-      "address": "Setilla 12",
-      "city": "Aver",
-      "postalcode": "23-45-56",
-      "status": "HIRED",
-      "salary": "1800"
-    },
-    {
       "id": "b89d",
       "firstname": "Alycia",
       "lastname": "Doe Kravitz",
