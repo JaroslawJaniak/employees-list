@@ -14,6 +14,8 @@ export function Table({ data, itemsPerPage }: TableProps) {
   const context = useContext(EmployeesContext);
   const navigate = useNavigate();
   const [displayData, setDisplayData] = useState<Employee[]>(data);
+  const [displayTableCurrentData, setDisplayTableCurrentData] =
+    useState<Employee[]>(data);
   const [sortKey, setSortKey] = useState<null | keyof Employee>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc" | null>(
     null
@@ -30,6 +32,9 @@ export function Table({ data, itemsPerPage }: TableProps) {
     context?.setCurrentPage(page);
     console.log("current page: " + context?.currentPage);
     setDisplayData(data.slice((page - 1) * itemsPerPage, page * itemsPerPage));
+    setDisplayTableCurrentData(
+      data.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+    );
   };
   //-------------------------------------------------------------------------------
   const { t } = useTranslation();
@@ -41,6 +46,7 @@ export function Table({ data, itemsPerPage }: TableProps) {
         context?.currentPage * itemsPerPage
       )
     );
+    
     return () => {};
   }, [itemsPerPage]);
 
@@ -84,7 +90,7 @@ export function Table({ data, itemsPerPage }: TableProps) {
     } else if (tempSortDirection === "desc") {
       sortedData = [...displayData].sort((a, b) => sortDesc(a, b, key));
     } else {
-      sortedData = [...data];
+      sortedData = [...displayTableCurrentData];
     }
 
     setDisplayData(sortedData);
