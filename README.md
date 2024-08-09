@@ -6,7 +6,7 @@
 
 - [@jaroslawjaniak](https://github.com/JaroslawJaniak/)
 
-## Run shortcut project
+## Run project shortcut
 
 1. npm install
 2. npm run mock-server
@@ -36,6 +36,12 @@ Start json-server
 
 ```bash
   npm run mock-server
+```
+
+or
+
+```bash
+  npx json-server db.json -p 3001
 ```
 
 Start the server
