@@ -6,7 +6,7 @@
 
 - [@jaroslawjaniak](https://github.com/JaroslawJaniak/)
 
-## Run shorthand project
+## Run shortcut project
 
 1. npm install
 2. npm run mock-server
