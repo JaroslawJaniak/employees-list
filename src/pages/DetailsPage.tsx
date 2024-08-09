@@ -84,16 +84,16 @@ export function DetailsPage() {
         onClose={closeDialog}
         title={`${t("delete_dialog_description")}`}
       >
-        <div className="grid grid-cols-4 ">
+        <div className="flex justify-around">
           <button
-            className="  col-start-1 text-white bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-3 py-1.5  mb-2 w-24 "
+            className="  text-white bg-red-700 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-3 py-1.5  mb-2 w-24 "
             type="submit"
             onClick={handleConfirmDeleteDialog}
           >
             {t("yes")}
           </button>
           <button
-            className="col-end-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-3 py-1.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            className=" text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-3 py-1.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
             type="submit"
             onClick={closeDialog}
           >
