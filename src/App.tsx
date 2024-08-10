@@ -4,7 +4,7 @@ import { EmployeesPage } from "./pages/EmployeesPage";
 import { DetailsPage } from "./pages/DetailsPage";
 import { AddPage } from "./pages/AddPage";
 import { EditPage } from "./pages/EditPage";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { Main } from "./components/Main";

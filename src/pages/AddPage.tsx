@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { addEmployee } from "../services/API";
-import { STATUS_OPTIONS, StatusOption } from "../models/StatusOption";
-import { useState } from "react";
+
 import { SelectStatus } from "../components/SelectStatus";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
@@ -9,20 +8,10 @@ import { toast } from "react-toastify";
 
 export function AddPage() {
   const navigate = useNavigate();
-  const [statusOptions] = useState<StatusOption[]>(STATUS_OPTIONS);
+  
   const { t } = useTranslation();
   const notifySuccess = () => {
-    //toast("Default Notification!");
     toast.success(t("notify_ADD_success"));
-    // toast.error("Error Notification!", {
-    //   position: toast.POSITION.BOTTOM_RIGHT,
-    // });
-    // toast.info("Info Notification!", {
-    //   position: toast.POSITION.BOTTOM_CENTER,
-    // });
-    // toast.warn("Warning Notification!", {
-    //   position: toast.POSITION.BOTTOM_LEFT,
-    // });
   };
 
 
@@ -32,15 +21,17 @@ export function AddPage() {
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
 
-    const data: any = {};
+    const data: Record<string, string> = {};
 
     //key- name
     //value przekazywane z inputu
     formData.forEach((value, key) => {
-      data[key] = value;
+      data[key] = value as string;
     });
 
-    addEmployee(data)
+    // TODO: Try to find better typing method
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    addEmployee(data as any)
       .then(() => {
         notifySuccess();
         navigate("/");

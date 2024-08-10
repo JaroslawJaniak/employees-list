@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import i18n from "../i18n";
 import { EmployeesContext } from "../context/EmployeesContext";
 
@@ -9,7 +9,7 @@ export function LanguageSelector() {
     { code: "pl", label: "Polski" },
     { code: "en", label: "English" },
   ];
-  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+  
   const initLanguage = i18n.language;
 
   const onLanguageChange = (event: React.ChangeEvent): void => {

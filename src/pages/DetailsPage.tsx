@@ -41,7 +41,7 @@ export function DetailsPage() {
         setData(employee);
       });
     }
-  }, []);
+  }, [data, id]);
 
   const handleEditClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>

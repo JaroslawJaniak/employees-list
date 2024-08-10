@@ -1,6 +1,6 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { editDataEmployee, getDataEmployee } from "../services/API";
-import { STATUS_OPTIONS, StatusOption } from "../models/StatusOption";
+
 import { useEffect, useState, useContext } from "react";
 import { Employee, EmployeeStatus } from "../models/Employee";
 import { SelectStatus } from "../components/SelectStatus";
@@ -11,14 +11,14 @@ import { toast } from "react-toastify";
 
 export function EditPage() {
   const context = useContext(EmployeesContext);
-  const navigate = useNavigate();
+
   const location = useLocation();
   const { id } = useParams();
   const { t } = useTranslation();
   const notify = () => toast(t("notify_EDIT_success"), { type: "success" });
 
   const [data, setData] = useState<Employee>(location.state);
-  const [statusOptions] = useState<StatusOption[]>(STATUS_OPTIONS);
+
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [phonenumber, setPhonenumber] = useState<number | null>(null);
@@ -72,7 +72,7 @@ export function EditPage() {
       lastname,
       phonenumber,
       birthdate,
-      salary,
+      salary: salary || 0,
       status,
       address,
       city,
@@ -151,7 +151,7 @@ export function EditPage() {
                 {t("phonenumber")}
               </label>
               <input
-                value={phonenumber}
+                value={phonenumber ? phonenumber.toString() : ""}
                 onChange={(event) => {
                   setPhonenumber(+event.target.value);
                   checkValidity();

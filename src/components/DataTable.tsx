@@ -3,7 +3,6 @@ import { Employee } from "../models/Employee";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { EmployeesContext } from "../context/EmployeesContext";
-import { NavButton } from "./NavButton";
 
 interface TableProps {
   data: Employee[];
@@ -46,9 +45,9 @@ export function Table({ data, itemsPerPage }: TableProps) {
         context?.currentPage * itemsPerPage
       )
     );
-    
+
     return () => {};
-  }, [itemsPerPage]);
+  }, [itemsPerPage, data, context?.currentPage]);
 
   const handleSearchType = (event: React.KeyboardEvent) => {
     const input = event.target as HTMLInputElement;
@@ -108,6 +107,9 @@ export function Table({ data, itemsPerPage }: TableProps) {
   };
 
   const sortAsc = (a: Employee, b: Employee, key: keyof Employee): number => {
+    if (a[key] === null || b[key] === null) {
+      throw new Error("data should not bee null");
+    }
     if (a[key] > b[key]) {
       return 1;
     }

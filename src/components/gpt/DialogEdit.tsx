@@ -10,7 +10,6 @@ interface DialogEditProps {
 const DialogEdit: React.FC<DialogEditProps> = ({
   isOpen,
   onClose,
-  title,
   children,
 }) => {
   if (!isOpen) return null;

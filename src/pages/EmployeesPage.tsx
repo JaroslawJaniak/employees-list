@@ -14,16 +14,11 @@ export function EmployeesPage() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    // getAllEmployees().then((employees) => {
-    //   setData(employees);
-    //   context?.setEmployees(employees);
-    // });
-
     fetchDataEmployees().then((data) => {
       setData(data);
       context?.setEmployees(data);
     });
-  }, []);
+  }, [data, context]);
 
   const handleAddClick = (event: React.MouseEvent): void => {
     event.preventDefault();
