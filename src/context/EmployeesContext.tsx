@@ -11,7 +11,7 @@ type EmployeesContextType = {
   setSelectedLanguage: (language: string) => void;
   isDialogEditOpen: boolean;
   setIsDialogEditOpen: (status: boolean) => void;
-  currentPage: number | undefined;
+  currentPage: number ;
   setCurrentPage: (page: number) => void;
 };
 
