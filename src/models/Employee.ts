@@ -8,7 +8,7 @@ export interface Employee {
   address: string;
   city: string;
   zipcode: string;
-  birthdate: Date;
+  birthdate: Date | null;
 }
 
 export type EmployeeStatus = "HIRED" | "FIRED" | "ON_LEAVE";

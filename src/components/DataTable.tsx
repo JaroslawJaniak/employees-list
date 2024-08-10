@@ -29,7 +29,6 @@ export function Table({ data, itemsPerPage }: TableProps) {
     if (page < 1) page = 1;
     if (page > pageCount) page = pageCount;
     context?.setCurrentPage(page);
-    console.log("current page: " + context?.currentPage);
     setDisplayData(data.slice((page - 1) * itemsPerPage, page * itemsPerPage));
     setDisplayTableCurrentData(
       data.slice((page - 1) * itemsPerPage, page * itemsPerPage)
@@ -39,12 +38,8 @@ export function Table({ data, itemsPerPage }: TableProps) {
   const { t } = useTranslation();
 
   useEffect(() => {
-    setDisplayData(
-      data.slice(
-        (context?.currentPage - 1) * itemsPerPage,
-        context?.currentPage * itemsPerPage
-      )
-    );
+    const page = context?.currentPage ?? 1;
+    setDisplayData(data.slice((page - 1) * itemsPerPage, page * itemsPerPage));
 
     return () => {};
   }, [itemsPerPage, data, context?.currentPage]);
@@ -108,8 +103,9 @@ export function Table({ data, itemsPerPage }: TableProps) {
 
   const sortAsc = (a: Employee, b: Employee, key: keyof Employee): number => {
     if (a[key] === null || b[key] === null) {
-      throw new Error("data should not bee null");
+      throw new Error("Data should not be null");
     }
+
     if (a[key] > b[key]) {
       return 1;
     }
@@ -122,6 +118,10 @@ export function Table({ data, itemsPerPage }: TableProps) {
   };
 
   const sortDesc = (a: Employee, b: Employee, key: keyof Employee): number => {
+    if (a[key] === null || b[key] === null) {
+      throw new Error("Data should not be null");
+    }
+
     if (a[key] < b[key]) {
       return 1;
     }
@@ -289,7 +289,11 @@ export function Table({ data, itemsPerPage }: TableProps) {
       <div className="mx-auto fixed w-full bottom-8 sm:bottom-0 md:bottom-8 right-0 ">
         <div className="mx-auto px-2 w-11/12 md:w-3/4 lg:w-1/4 flex justify-between bg-white">
           <button
-            onClick={() => handlePageClick(context?.currentPage - 1)}
+            onClick={() =>
+              handlePageClick(
+                context?.currentPage ? context?.currentPage - 1 : 1
+              )
+            }
             disabled={context?.currentPage === 1}
             className="  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-8   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           >
@@ -312,7 +316,11 @@ export function Table({ data, itemsPerPage }: TableProps) {
             {context?.currentPage} {t("of")} {pageCount}{" "}
           </span>
           <button
-            onClick={() => handlePageClick(context?.currentPage + 1)}
+            onClick={() =>
+              handlePageClick(
+                context?.currentPage ? context?.currentPage + 1 : 1
+              )
+            }
             disabled={context?.currentPage === pageCount}
             className="  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-8   py-1.0 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           >

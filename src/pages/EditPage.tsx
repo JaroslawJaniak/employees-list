@@ -70,8 +70,8 @@ export function EditPage() {
       id: data.id,
       firstname,
       lastname,
-      phonenumber,
-      birthdate,
+      phonenumber: phonenumber || 0,
+      birthdate: birthdate ,
       salary: salary || 0,
       status,
       address,
@@ -231,7 +231,7 @@ export function EditPage() {
               </label>
               <SelectStatus
                 defaultValue={status}
-                onChange={(event) => setStatus(event.target.value)}
+                onChange={(status) => setStatus(status)}
                 name="status"
               ></SelectStatus>
             </div>
