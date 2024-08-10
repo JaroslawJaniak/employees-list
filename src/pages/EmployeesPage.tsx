@@ -38,7 +38,7 @@ export function EmployeesPage() {
               {t("add")}
             </button>
           </div>
-          <Table data={data} itemsPerPage={10}></Table>
+          <Table data={data} itemsPerPage={8}></Table>
         </>
       ) : (
         <Loader />
