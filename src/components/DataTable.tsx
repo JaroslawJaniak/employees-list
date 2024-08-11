@@ -40,9 +40,12 @@ export function Table({ data, itemsPerPage }: TableProps) {
   useEffect(() => {
     const page = context?.currentPage ?? 1;
     setDisplayData(data.slice((page - 1) * itemsPerPage, page * itemsPerPage));
+     setDisplayTableCurrentData(
+       data.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+     );
 
     return () => {};
-  }, [itemsPerPage, data, context?.currentPage]);
+  }, [itemsPerPage, context?.currentPage]);
 
   const handleSearchType = (event: React.KeyboardEvent) => {
     const input = event.target as HTMLInputElement;

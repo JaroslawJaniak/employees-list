@@ -240,7 +240,7 @@ export function EditPage() {
           <div className="grid grid-cols-12 gap-4">
             <button
               className={
-                " col-start-10 lg:col-start-11 text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-5 py-1 lg:py-2.5 mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" +
+                " col-start-10  text-white bg-gray-700 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium font-fantasy rounded text-sm px-5 py-1 lg:py-2.5 mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" +
                 (isFormValid ? "" : "btn-disabled")
               }
               type="submit"
