@@ -41,9 +41,9 @@ export function Table({ data, itemsPerPage }: TableProps) {
   useEffect(() => {
     const page = context?.currentPage ?? 1;
     setDisplayData(data.slice((page - 1) * itemsPerPage, page * itemsPerPage));
-     setDisplayTableCurrentData(
-       data.slice((page - 1) * itemsPerPage, page * itemsPerPage)
-     );
+    setDisplayTableCurrentData(
+      data.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+    );
 
     return () => {};
   }, [itemsPerPage, context?.currentPage]);
@@ -52,15 +52,19 @@ export function Table({ data, itemsPerPage }: TableProps) {
     const input = event.target as HTMLInputElement;
     const phrase = input.value.toLowerCase();
 
-    const d = data.filter((item) => {
-      return (
-        item.firstname.toLowerCase().includes(phrase) ||
-        item.lastname.toLowerCase().includes(phrase) ||
-        item.phonenumber.toString().includes(phrase)
-      );
-    });
+    if (phrase !== "") {
+      const d = data.filter((item) => {
+        return (
+          item.firstname.toLowerCase().includes(phrase) ||
+          item.lastname.toLowerCase().includes(phrase) ||
+          item.phonenumber.toString().includes(phrase)
+        );
+      });
 
-    setDisplayData(d);
+      setDisplayData(d);
+    } else {
+      setDisplayData(displayTableCurrentData);
+    }
   };
 
   const getSortDirection = (key: keyof Employee): "asc" | "desc" | null => {
