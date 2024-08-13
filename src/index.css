@@ -2,15 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
   font-family: "Courier New", monospace;
 }
 
 .font-fantasy {
   font-family: fantasy;
-  
 }
 
 .body {
@@ -27,21 +24,41 @@ body {
 }
 
 .flip-horizontal {
-    transform: scaleX(-1);
+  transform: scaleX(-1);
 }
-
 
 .btn-disabled {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity)) /* #374151 */;
 }
 
- /* tbody tr:nth-child(odd) {
-   background-color: rgb(241, 241, 241);
-} */
+.details-form input {
+  cursor: default;
+}
 
-.details-form  input{
-cursor:default;
+.text-bg-danger {
+  border-radius: 0.25rem;
+  background-color: rgb(235, 88, 88);
+  display: block;
+  padding: 0.25rem;
+}
+.text-bg-warning {
+  border-radius: 0.25rem;
+  background-color: rgb(255, 208, 0);
+  display: block;
+  padding: 0.25rem;
+}
+.text-bg-success {
+  border-radius: 0.25rem;
+  background-color: rgb(127, 192, 111);
+  display: block;
+  padding: 0.25rem;
+}
+.text-bg-secondary {
+  border-radius: 0.25rem;
+  background-color: rgb(211, 209, 209);
+  display: block;
+  padding: 0.25rem;
 }
 
 .lds-spinner,
