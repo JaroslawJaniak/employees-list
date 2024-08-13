@@ -33,6 +33,9 @@ export function SelectStatus({
       className="block pt-1 pb-1 ps-10 mb-3 text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
       name={name}
     >
+      <option value="status_UNKNOWN" disabled>
+        {t("status_UNKNOWN")}
+      </option>
       {statusOptions.map((statusCode) => (
         <option key={statusCode} value={statusCode}>
           {t("status_" + statusCode)}

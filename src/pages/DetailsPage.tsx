@@ -4,7 +4,7 @@ import { Employee } from "../models/Employee";
 import { useEffect, useState, useContext } from "react";
 import { getDataEmployee, deleteEmployee } from "../services/API";
 import { useTranslation } from "react-i18next";
-import { useTranslateStatus } from "../models/StatusOption";
+
 import { Loader } from "../components/Loader";
 import DialogConfirm from "../components/DialogConfirm";
 import DialogEdit from "../components/DialogEdit";
@@ -12,6 +12,7 @@ import { EditPage } from "./EditPage";
 import { formatDate } from "../utils/formatDate";
 
 import { toast } from "react-toastify";
+import { Status } from "../components/Status";
 
 export function DetailsPage() {
   const context = useContext(EmployeesContext);
@@ -20,7 +21,6 @@ export function DetailsPage() {
 
   const notify = () => toast(t("notify_DELETE_success"), { type: "success" });
 
-  const { translateStatus } = useTranslateStatus();
   const { t } = useTranslation();
 
   const { id } = useParams();
@@ -258,22 +258,6 @@ export function DetailsPage() {
           <hr className="my-5" />
           <div className="lg:grid grid-cols-3 w-100 [&>*]:mb-4">
             <div className="col">
-              <label htmlFor="status" className="form-label font-fantasy">
-                {t("status")}
-              </label>
-              <input
-                type="text"
-                className="block pt-1 pb-1 ps-10 uppercase text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                id="status"
-                value={
-                  context?.employee?.status
-                    ? context?.employee?.status
-                    : translateStatus(data.status)
-                }
-                readOnly
-              />
-            </div>
-            <div className="col">
               <label htmlFor="salary" className="form-label font-fantasy">
                 {t("salary")}
               </label>
@@ -286,6 +270,29 @@ export function DetailsPage() {
                     : data.salary
                 }
                 readOnly
+              />
+            </div>
+            <div className="col">
+              <label htmlFor="status" className="form-label font-fantasy">
+                {t("status")}
+              </label>
+              {/* <input
+                type="text"
+                className="block pt-1 pb-1 ps-10 uppercase text-gray-900 border border-gray-300 rounded w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                id="status"
+                value={
+                  context?.employee?.status
+                    ? context?.employee?.status
+                    : translateStatus(data.status)
+                }
+                readOnly
+              /> */}
+              <Status
+                data={
+                  context?.employee?.status
+                    ? context?.employee?.status
+                    : data.status
+                }
               />
             </div>
           </div>

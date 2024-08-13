@@ -3,6 +3,7 @@ import { Employee } from "../models/Employee";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { EmployeesContext } from "../context/EmployeesContext";
+import { Status } from "./Status";
 
 interface TableProps {
   data: Employee[];
@@ -283,7 +284,10 @@ export function Table({ data, itemsPerPage }: TableProps) {
                 <td>{item.firstname}</td>
                 <td>{item.lastname}</td>
                 <td>{item.salary}</td>
-                <td>{t("status_" + item.status)}</td>
+                {/* <td>{t("status_" + item.status)}</td> */}
+                <td>
+                  <Status data={item.status}></Status>
+                </td>
               </tr>
             ))}
           </tbody>
