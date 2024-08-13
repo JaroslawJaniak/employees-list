@@ -6,7 +6,12 @@ export interface StatusOption {
   value: EmployeeStatus;
 }
 
-export const STATUS_OPTIONS: EmployeeStatus[] = ["FIRED", "HIRED", "ON_LEAVE"];
+export const STATUS_OPTIONS: EmployeeStatus[] = [
+  "UNKNOWN",
+  "FIRED",
+  "HIRED",
+  "ON_LEAVE",
+];
 
 export const useTranslateStatus = (): {
   translateStatus: (s: EmployeeStatus) => string;

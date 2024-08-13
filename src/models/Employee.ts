@@ -11,4 +11,4 @@ export interface Employee {
   birthdate: Date | null;
 }
 
-export type EmployeeStatus = "HIRED" | "FIRED" | "ON_LEAVE";
+export type EmployeeStatus = "UNKNOWN" | "HIRED" | "FIRED" | "ON_LEAVE";

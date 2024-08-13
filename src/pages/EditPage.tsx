@@ -24,7 +24,7 @@ export function EditPage() {
   const [phonenumber, setPhonenumber] = useState<number | null>(null);
   const [birthdate, setBirthdate] = useState<Date | null>(null);
   const [salary, setSalary] = useState<number | null>(null);
-  const [status, setStatus] = useState<EmployeeStatus>("ON_LEAVE");
+  const [status, setStatus] = useState<EmployeeStatus>("UNKNOWN");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [zipcode, setZipcode] = useState("");
