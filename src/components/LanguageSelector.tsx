@@ -114,6 +114,7 @@ export function LanguageSelector() {
         {context?.selectedLanguage === "pl" ? flagPLSvg : flagENGSvg}
         {}
         <select
+          id="languageSelector"
           onChange={onLanguageChange}
           className="form-control w-44 ml-1 border border-gray-300 rounded bg-gray-50 focus:ring-blue-500 focus:border-blue-500 text-sm"
           defaultValue={initLanguage}
