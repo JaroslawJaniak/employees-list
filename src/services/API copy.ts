@@ -2,6 +2,7 @@ import { Employee } from "../models/Employee";
 import { config } from "./apiURL";
 
 const employeeUrl = config.apirUrl + "employee/";
+//apirUrl: "https://65b42955770d43aba47afb50.mockapi.io/",
 
 export const addEmployee = async (newEmployee: Omit<Employee, "id">) => {
   const apiUrl = employeeUrl;
@@ -44,6 +45,7 @@ export const deleteEmployee = async (id: string): Promise<boolean> => {
 };
 
 export const getDataEmployee = async (id: string): Promise<Employee> => {
+  //const apiUrl = "http://localhost:3001/employees/" + id;
   const apiUrl = employeeUrl + id;
 
   const response = await fetch(apiUrl, { method: "GET" });
@@ -74,6 +76,7 @@ export const fetchDataEmployees = async (): Promise<Employee[]> => {
 };
 
 export const getAllEmployees = async (): Promise<Employee[]> => {
+  //const apiUrl = "http://localhost:3001/employees";
   const apiUrl = employeeUrl;
 
   const response = await fetch(apiUrl, { method: "GET" });

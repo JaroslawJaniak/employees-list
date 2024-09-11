@@ -44,7 +44,7 @@ or
   npx json-server db.json -p 3001
 ```
 
-Start the server
+Start project
 
 ```bash
   npm run dev
