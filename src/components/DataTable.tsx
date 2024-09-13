@@ -34,6 +34,7 @@ export function Table({ data, itemsPerPage }: TableProps) {
     setDisplayTableCurrentData(
       data.slice((page - 1) * itemsPerPage, page * itemsPerPage)
     );
+    setSortDirection(null);
   };
   //-------------------------------------------------------------------------------
   const { t } = useTranslation();
@@ -298,7 +299,7 @@ export function Table({ data, itemsPerPage }: TableProps) {
         </table>
       </div>
       <div className="mx-auto fixed w-full bottom-8 sm:bottom-0 md:bottom-8 right-0 ">
-        <div className="mx-auto px-2 w-11/12 md:w-3/4 lg:w-1/4 flex justify-between bg-white">
+        <div className="mx-auto h-auto w-11/12 md:w-3/4 lg:w-1/4 flex justify-between bg-white">
           <button
             onClick={() =>
               handlePageClick(
@@ -306,7 +307,7 @@ export function Table({ data, itemsPerPage }: TableProps) {
               )
             }
             disabled={context?.currentPage === 1}
-            className="  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-8   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            className="  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-8   py-1.5   dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           >
             <svg
               width="19"
@@ -333,7 +334,7 @@ export function Table({ data, itemsPerPage }: TableProps) {
               )
             }
             disabled={context?.currentPage === pageCount}
-            className="  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-8   py-1.0 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            className="  text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-8   py-1.0   dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           >
             <svg
               width="19"
